@@ -15,6 +15,7 @@ app.post("/mcargs", (req, res) => {
   //mcargs.push({msisdn, sc, text, service_id });
   //res.json({ id, name });
   console.log("/mcargs request called");
+  res.send('Welcome to service');
   //call another service
   //res.json(mcargs);
 });
