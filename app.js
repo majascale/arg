@@ -37,7 +37,7 @@ app.post("/mcargs", (req, res) => {
         }
     });
   //const data = response.json();
-  console.log('Response is: ' + response);
+  //console.log('Response is: ' + response);
   res.send('End sending');
 });
 
