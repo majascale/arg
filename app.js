@@ -37,8 +37,8 @@ app.post("/mcargs", (req, res) => {
         }
     });
   //const data = response.json();
-  //console.log('Response is: ' + response);
-  //res.send('End sending');
+  console.log('Response is: ' + response);
+  
 });
 
 app.listen( port, () => console.log( `App listening on port ${port}!`) )
