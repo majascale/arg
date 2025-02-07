@@ -36,8 +36,8 @@ app.post("/mcargs", (req, res) => {
                 '9882ab2ab77624cfe55e3f075c0603fa855eadebb1108057df3ebf900328b39cc57bccaf1a0a9cb7bd6fe344a7f10cdd5fd92ae61871d02625fe63ffa457e3d3'   
         }
     });
-  const data = response.json();
-  console.log('Data are: ' + data);
+  //const data = response.json();
+  console.log('Response is: ' + response);
   res.send('End sending');
 });
 
