@@ -37,7 +37,7 @@ app.post("/mcargs", (req, res) => {
     }
   );
 
-  console.log('Response is: ' + response.body);
+  console.log('Response Body is: ' + JSON.parse(response.body));
   res.send('End');
 });
 
