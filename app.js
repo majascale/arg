@@ -1,4 +1,4 @@
-//import fetch from 'node-fetch';
+
 var express = require("express");
 var app = express();
 var port = process.env.PORT || 3000
@@ -15,7 +15,8 @@ app.post("/mcargs", (req, res) => {
   //mcargs.push({msisdn, sc, text, service_id });
   //res.json({ id, name });
   console.log("/mcargs request started");
-  const fetch = require('node-fetch');
+  //const fetch = require('node-fetch');
+  const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
   //res.send('Welcome to service');
   // Propmise then/catch block
 // Make request
