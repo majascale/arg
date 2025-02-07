@@ -17,40 +17,7 @@ app.post("/mcargs", (req, res) => {
   console.log("/mcargs request started");
   //const fetch = require('node-fetch');
   const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-  //res.send('Welcome to service');
-  // Propmise then/catch block
-// Make request
-fetch(
-'https://api-test.msghub.cloud/send',
-    {
-        method: 'POST',
-        body: JSON.stringify({
-            msisdn: '38977772032',
-            text: 'Test on Thursday',
-            sc: '1990',
-            service_id: '2724'
-        }),
-        headers: {
-            'Content-type':
-                'application/json',
-            'x-api-key':
-                '$2y$10$cVc5FU0gmzvnMcHS5wi.9erdJ1qPsKjTv1RjYfNopLeC10Nfyl7cm',
-            'x-api-sign':
-                '9882ab2ab77624cfe55e3f075c0603fa855eadebb1108057df3ebf900328b39cc57bccaf1a0a9cb7bd6fe344a7f10cdd5fd92ae61871d02625fe63ffa457e3d3'   
-        },
-    })
-    // Parse JSON data
-    .then(
-        (response) =>
-            response.json()
-    )
-
-    // Showing response
-    .then(
-        (json) =>
-            console.log('Response: ' + json)
-    )
-    .catch(err => console.log(err))
+  res.send('Welcome to service');
   //res.json(mcargs);
 });
 
