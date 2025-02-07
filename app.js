@@ -16,7 +16,7 @@ app.post("/mcargs", (req, res) => {
   //res.json({ id, name });
   console.log("/mcargs request started");
   const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-  fetch(
+  const response = fetch(
     'https://api-test.msghub.cloud/send',
     {
         method: 'POST',
@@ -45,7 +45,7 @@ app.post("/mcargs", (req, res) => {
             console.log('Json is: ' + json)
     );
   //const data = response.json();
-  console.log('Response is: ' + response);
+  console.log('Response is: ' + JSON.stringify(response,null,2));
   res.send('End');
 });
 
