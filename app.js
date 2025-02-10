@@ -5,9 +5,14 @@ var port = process.env.PORT || 3000
 
 app.use(express.json());
 
-let mcargs = [
-  {msisdn: "38977772032", sc: "1990", text: "Test on Thursday", service_id: "2724"}
-];
+//let mcargs = [
+//  {msisdn: "38977772032", sc: "1990", text: "Test on Thursday", service_id: "2724"}
+//];
+
+var msisdn;
+var sc;
+var text;
+var service_id;
 
 app.post("/mcargs", (req, res) => {
   console.log("START");
