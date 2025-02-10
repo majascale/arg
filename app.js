@@ -22,8 +22,8 @@ app.post("/mcargs", (req, res) => {
         method: 'POST',
         body: JSON.stringify({
             msisdn: '38977772032',
-            text: 'Test on Thursday',
             sc: '1990',
+            text: 'Test on Thursday',
             service_id: '2724'
         }),
         headers: {
