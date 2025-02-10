@@ -10,10 +10,6 @@ let mcargs = [
 ];
 
 app.post("/mcargs", (req, res) => {
-  //const { name } = req.body;
-  //const id = mcargs.length + 1;
-  //mcargs.push({msisdn, sc, text, service_id });
-  //res.json({ id, name });
   console.log("START");
   console.log("BODY IN: " + JSON.stringify(req.body));
   const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
