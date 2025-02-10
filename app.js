@@ -31,7 +31,7 @@ app.post("/mcargs", (req, res) => {
         headers: {
             'Content-type': 'application/json',
             'x-api-key': '$2y$10$cVc5FU0gmzvnMcHS5wi.9erdJ1qPsKjTv1RjYfNopLeC10Nfyl7cm',
-            'x-api-sign': '69444d25cd797797d8a5cf9d5f4f2a3b51646a2934b1b84f1c2f0035bbe85ef03bcd4891d9bded64068397894da9f97e885893b807745966aaa5dad886bed472',
+            'x-api-sign': '6faf7f7b1fe7d3b7e25eb61d4ef4cf072586562cd968c1141508b3bfe26d6dd72ce6dc3519ce2762960b87acece6499afd8e43863599107d0a59f109169e99e5',
             'Expect': ''
           
         }
