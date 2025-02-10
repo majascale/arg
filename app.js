@@ -27,14 +27,9 @@ app.post("/mcargs", (req, res) => {
             service_id: '2724'
         }),
         headers: {
-            'Content-type':
-                'application/json',
-            'x-api-key':
-                '$2y$10$cVc5FU0gmzvnMcHS5wi.9erdJ1qPsKjTv1RjYfNopLeC10Nfyl7cm',
-            'x-api-sign':
-                '9882ab2ab77624cfe55e3f075c0603fa855eadebb1108057df3ebf900328b39cc57bccaf1a0a9cb7bd6fe344a7f10cdd5fd92ae61871d02625fe63ffa457e3d3',
-          'Expect':
-            ''
+            'Content-type': 'application/json',
+            'x-api-key': '$2y$10$cVc5FU0gmzvnMcHS5wi.9erdJ1qPsKjTv1RjYfNopLeC10Nfyl7cm',
+            'x-api-sign': '9882ab2ab77624cfe55e3f075c0603fa855eadebb1108057df3ebf900328b39cc57bccaf1a0a9cb7bd6fe344a7f10cdd5fd92ae61871d02625fe63ffa457e3d3'
         }
     }
   )
