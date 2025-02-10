@@ -30,7 +30,7 @@ app.post("/mcargs", (req, res) => {
             'Content-type':
                 'application/json',
             'x-api-key':
-                '$2y$10$cVc5FU0gmzvnMcHS5wi.9erdJ1qPsKjTv1RjYfNopLeC10Nfyl7cm',
+                'PMAK-67a5d7c6b03d40000130ceb9-82966bd953809aba82a8c8cd45447d6737',
             'x-api-sign':
                 '9882ab2ab77624cfe55e3f075c0603fa855eadebb1108057df3ebf900328b39cc57bccaf1a0a9cb7bd6fe344a7f10cdd5fd92ae61871d02625fe63ffa457e3d3'   
         }
