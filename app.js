@@ -14,7 +14,8 @@ app.post("/mcargs", (req, res) => {
   //const id = mcargs.length + 1;
   //mcargs.push({msisdn, sc, text, service_id });
   //res.json({ id, name });
-  console.log("/mcargs request started");
+  console.log("START");
+  console.log("BODY IN: " + req.body);
   const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
   fetch(
         'https://api-test.msghub.cloud/send',
@@ -41,6 +42,7 @@ app.post("/mcargs", (req, res) => {
     });
 
   //console.log('Response Body is: ' + JSON.parse(response.body));
+  console.log("END");
   res.send('End');
 });
 
