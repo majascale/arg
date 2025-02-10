@@ -17,7 +17,8 @@ app.post("/mcargs", (req, res) => {
   console.log("/mcargs request started");
   const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
   fetch(
-    'https://api-test.msghub.cloud/send',
+    //'https://api-test.msghub.cloud/send',
+    'https://7bf6a6b3-a1af-4ef1-924d-e3d64346c85a.mock.pstmn.io',
     {
         method: 'POST',
         body: JSON.stringify({
