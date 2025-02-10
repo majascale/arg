@@ -16,7 +16,7 @@ var service_id;
 
 app.post("/mcargs", (req, res) => {
   console.log("START");
-  console.log("BODY IN: " + JSON.stringify(req.body));
+  //console.log("BODY IN: " + JSON.stringify(req.body));
   const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
   fetch(
         'https://api-test.msghub.cloud/send',
@@ -31,7 +31,9 @@ app.post("/mcargs", (req, res) => {
         headers: {
             'Content-type': 'application/json',
             'x-api-key': '$2y$10$cVc5FU0gmzvnMcHS5wi.9erdJ1qPsKjTv1RjYfNopLeC10Nfyl7cm',
-            'x-api-sign': '9882ab2ab77624cfe55e3f075c0603fa855eadebb1108057df3ebf900328b39cc57bccaf1a0a9cb7bd6fe344a7f10cdd5fd92ae61871d02625fe63ffa457e3d3'
+            'x-api-sign': '69444d25cd797797d8a5cf9d5f4f2a3b51646a2934b1b84f1c2f0035bbe85ef03bcd4891d9bded64068397894da9f97e885893b807745966aaa5dad886bed472',
+            'Expect': ''
+          
         }
     }
   )
