@@ -15,7 +15,7 @@ app.post("/mcargs", (req, res) => {
   //mcargs.push({msisdn, sc, text, service_id });
   //res.json({ id, name });
   console.log("START");
-  console.log("BODY IN: " + JSON.parse(req.body));
+  console.log("BODY IN: " + JSON.stringify(req.body));
   const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
   fetch(
         'https://api-test.msghub.cloud/send',
