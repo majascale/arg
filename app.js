@@ -6,7 +6,7 @@ var port = process.env.PORT || 3000
 app.use(express.json());
 
 const crypto = require('crypto');
-const request = require('request');
+
 
 //let mcargs = [
 //  {msisdn: "38977772032", sc: "1990", text: "Test on Thursday", service_id: "2724"}
