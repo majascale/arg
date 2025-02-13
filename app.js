@@ -18,6 +18,28 @@ var signature;
 
 app.post("/mcargs", (req, res) => {
   console.log("START");
+  //simplify to drill down than add arguments.execute
+  var params = JSON.stringify(req.body.inArguments);
+  console.log("Request Params: " + params);
+  
+  for(var i in params){
+   if (params[i].type == null) {
+   }else{
+      type = params[i].type;
+   }
+  if (params[i].msisdn == null) {
+   }else{
+      msisdn = params[i].msisdn;
+   }
+   if (params[i].text == null) {
+   }else{
+      text = params[i].text;
+   }
+
+   console.log('Index:  ' + i);
+}
+
+  
   let data = {
      "msisdn":     "38977772032",
       "sc":         sc,
@@ -27,8 +49,9 @@ app.post("/mcargs", (req, res) => {
   data = JSON.stringify(data);
   signature = crypto.createHmac("sha512", secretKey).update(data).digest('hex');
   console.log('Signature: ' + signature);
-  //simplify to drill down than add arguments.execute
-  console.log("Request Body: " + JSON.stringify(req.body.inArguments));
+  
+ 
+  
   const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
   fetch(
         'https://api-test.msghub.cloud/send',
