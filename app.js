@@ -15,15 +15,14 @@ var sc = '1990';
 var service_id = '2724';
 var signature;
 
-let data = {
-  "msisdn":     "38977772032",
-  "sc":         sc,
-  "text":       "Test on Thursday",
-  "service_id": service_id
-};
-
 app.post("/mcargs", (req, res) => {
   console.log("START");
+  let data = {
+     "msisdn":     "38977772032",
+      "sc":         sc,
+      "text":       "Test on Thursday",
+      "service_id": service_id
+  };
   data = JSON.stringify(data);
   signature = crypto.createHmac("sha512", secretKey).update(data).digest('hex');
   console.log('Signature: ' + signature);
@@ -42,7 +41,7 @@ app.post("/mcargs", (req, res) => {
     }
   )
     .then(function (a) {
-        return a.json(); // call the json method on the response to get JSON
+        return a.json(); 
     })
     .then(function (json) {
         console.log(json)
