@@ -44,7 +44,7 @@ console.log('Text:  ' + text);
   let data = {
      "msisdn":      msisdn,
       "sc":         sc,
-      "text":       "Test on Thursday13",
+      "text":       text,
       "service_id": service_id
   };
   data = JSON.stringify(data);
