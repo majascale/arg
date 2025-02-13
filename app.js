@@ -35,7 +35,7 @@ app.post("/mcargs", (req, res) => {
         method: 'POST',
         body: JSON.stringify({
             msisdn: '38977772032',
-            sc: '1990',
+            sc: sc,
             text: 'Test on Thursday',
             service_id: '2724'
         }),
