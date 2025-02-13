@@ -11,7 +11,7 @@ const secret = "$2y$10$DHkc4KUis70s57hQvBPrfOBlbj.tonKXniTjUBpArymaVqOXxgcn.";
 var type;
 var msisdn;
 var text;
-const sc = '1990';
+vr sc = '1990';
 const service_id;
 
 let data = {
