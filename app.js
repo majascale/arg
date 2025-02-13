@@ -19,7 +19,8 @@ var signature;
 app.post("/mcargs", (req, res) => {
   console.log("START");
   //simplify to drill down than add arguments.execute
-  var params = JSON.stringify(req.body.inArguments);
+  //var params = JSON.stringify(req.body.inArguments);
+  var params = req.body.inArguments;
   console.log("Request Params: " + params);
   
   for(var i in params){
