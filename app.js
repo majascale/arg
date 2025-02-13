@@ -18,7 +18,7 @@ let data = {
   "msisdn":     "38977772032",
   "sc":         sc,
   "text":       "Test on Thursday",
-  "service_id": service_id,
+  "service_id": service_id
 };
 
 data = JSON.stringify(data);
