@@ -37,7 +37,7 @@ app.post("/mcargs", (req, res) => {
             msisdn: '38977772032',
             sc: sc,
             text: 'Test on Thursday',
-            service_id: '2724'
+            service_id: service_id
         }),
         headers: {
             'Content-type': 'application/json',
