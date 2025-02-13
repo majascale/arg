@@ -12,13 +12,13 @@ var type;
 var msisdn;
 var text;
 var sc = '1990';
-var service_id;
+var service_id = '2724';
 
 let data = {
   "msisdn":     "38977772032",
   "sc":         sc,
   "text":       "Test on Thursday",
-  "service_id": "2724",
+  "service_id": service_id,
 };
 
 data = JSON.stringify(data);
