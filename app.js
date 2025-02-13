@@ -6,13 +6,14 @@ var port = process.env.PORT || 3000
 app.use(express.json());
 
 const crypto = require('crypto');
-const secret = "$2y$10$DHkc4KUis70s57hQvBPrfOBlbj.tonKXniTjUBpArymaVqOXxgcn.";
+const secretKey = "$2y$10$DHkc4KUis70s57hQvBPrfOBlbj.tonKXniTjUBpArymaVqOXxgcn.";
 
 var type;
 var msisdn;
 var text;
 var sc = '1990';
 var service_id = '2724';
+var signature;
 
 let data = {
   "msisdn":     "38977772032",
@@ -22,11 +23,12 @@ let data = {
 };
 
 data = JSON.stringify(data);
-let signature = crypto.createHmac("sha512", secret).update(data).digest('hex');
-console.log('Signature: ' + signature);
+
 
 app.post("/mcargs", (req, res) => {
   console.log("START");
+  signature = crypto.createHmac("sha512", secretKey).update(data).digest('hex');
+  console.log('Signature: ' + signature);
   //console.log("BODY IN: " + JSON.stringify(req.body));
   const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
   fetch(
