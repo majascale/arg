@@ -38,7 +38,9 @@ app.post("/mcargs", (req, res) => {
 
    console.log('Index:  ' + i);
 }
-
+console.log('Type:  ' + type);
+console.log('Msisdn:  ' + msisdn);
+console.log('Text:  ' + text);
   
   let data = {
      "msisdn":     "38977772032",
