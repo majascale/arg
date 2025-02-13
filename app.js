@@ -6,6 +6,7 @@ var port = process.env.PORT || 3000
 app.use(express.json());
 
 const crypto = require('crypto');
+const apiKey = '$2y$10$cVc5FU0gmzvnMcHS5wi.9erdJ1qPsKjTv1RjYfNopLeC10Nfyl7cm';
 const secretKey = "$2y$10$DHkc4KUis70s57hQvBPrfOBlbj.tonKXniTjUBpArymaVqOXxgcn.";
 
 var type;
