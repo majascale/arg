@@ -19,7 +19,6 @@ var signature;
 app.post("/mcargs", (req, res) => {
   console.log("START");
   //simplify to drill down than add arguments.execute
-  //var params = JSON.stringify(req.body.inArguments);
   var params = req.body.inArguments;
   console.log("Request Params: " + params);
   
@@ -36,7 +35,6 @@ app.post("/mcargs", (req, res) => {
    }else{
       text = params[i].text;
    }
-
    console.log('Index:  ' + i);
 }
 console.log('Type:  ' + type);
@@ -44,7 +42,7 @@ console.log('Msisdn:  ' + msisdn);
 console.log('Text:  ' + text);
   
   let data = {
-     "msisdn":     "38977772032",
+     "msisdn":      msisdn,
       "sc":         sc,
       "text":       "Test on Thursday13",
       "service_id": service_id
