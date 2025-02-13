@@ -27,7 +27,7 @@ app.post("/mcargs", (req, res) => {
   data = JSON.stringify(data);
   signature = crypto.createHmac("sha512", secretKey).update(data).digest('hex');
   console.log('Signature: ' + signature);
-  //console.log("BODY IN: " + JSON.stringify(req.body));
+  console.log("Request Body: " + JSON.stringify(req.body));
   const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
   fetch(
         'https://api-test.msghub.cloud/send',
