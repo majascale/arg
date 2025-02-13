@@ -73,8 +73,8 @@ console.log('Text:  ' + text);
 
   //console.log('Response Body is: ' + JSON.parse(response.body));
   console.log("END");
-  //res.send('End');
-  res.send(json);
+  res.send('End');
+
 });
 
 app.listen( port, () => console.log( `App listening on port ${port}!`) )
