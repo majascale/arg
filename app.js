@@ -8,24 +8,20 @@ app.use(express.json());
 const crypto = require('crypto');
 const secret = "$2y$10$DHkc4KUis70s57hQvBPrfOBlbj.tonKXniTjUBpArymaVqOXxgcn.";
 
-//let mcargs = [
-//  {msisdn: "38977772032", sc: "1990", text: "Test on Thursday", service_id: "2724"}
-//];
-
+var type;
 var msisdn;
-var sc;
 var text;
-var service_id;
+const sc = '1990';
+const service_id;
 
 let data = {
   "msisdn":     "38977772032",
-  "sc":         "1990",
+  "sc":         sc,
   "text":       "Test on Thursday",
   "service_id": "2724",
 };
 
 data = JSON.stringify(data);
-
 let signature = crypto.createHmac("sha512", secret).update(data).digest('hex');
 console.log('Signature: ' + signature);
 
