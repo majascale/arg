@@ -22,11 +22,9 @@ let data = {
   "service_id": service_id
 };
 
-data = JSON.stringify(data);
-
-
 app.post("/mcargs", (req, res) => {
   console.log("START");
+  data = JSON.stringify(data);
   signature = crypto.createHmac("sha512", secretKey).update(data).digest('hex');
   console.log('Signature: ' + signature);
   //console.log("BODY IN: " + JSON.stringify(req.body));
@@ -35,12 +33,7 @@ app.post("/mcargs", (req, res) => {
         'https://api-test.msghub.cloud/send',
     {
         method: 'POST',
-        body: JSON.stringify({
-            msisdn: '38977772032',
-            sc: sc,
-            text: 'Test on Thursday',
-            service_id: service_id
-        }),
+        body: data,
         headers: {
             'Content-type': 'application/json',
             'x-api-key': '$2y$10$cVc5FU0gmzvnMcHS5wi.9erdJ1qPsKjTv1RjYfNopLeC10Nfyl7cm',
