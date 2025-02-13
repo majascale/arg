@@ -36,7 +36,8 @@ app.post("/mcargs", (req, res) => {
         body: data,
         headers: {
             'Content-type': 'application/json',
-            'x-api-key': '$2y$10$cVc5FU0gmzvnMcHS5wi.9erdJ1qPsKjTv1RjYfNopLeC10Nfyl7cm',
+            'x-api-key': apiKey,
+            //'x-api-key': '$2y$10$cVc5FU0gmzvnMcHS5wi.9erdJ1qPsKjTv1RjYfNopLeC10Nfyl7cm',
             'x-api-sign': signature
         }
     }
