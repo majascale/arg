@@ -51,8 +51,6 @@ console.log('Text:  ' + text);
   signature = crypto.createHmac("sha512", secretKey).update(data).digest('hex');
   console.log('Signature: ' + signature);
   
- 
-  
   const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
   fetch(
         'https://api-test.msghub.cloud/send',
@@ -75,7 +73,8 @@ console.log('Text:  ' + text);
 
   //console.log('Response Body is: ' + JSON.parse(response.body));
   console.log("END");
-  res.send('End');
+  //res.send('End');
+  res.send(json);
 });
 
 app.listen( port, () => console.log( `App listening on port ${port}!`) )
