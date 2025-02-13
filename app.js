@@ -12,7 +12,7 @@ var type;
 var msisdn;
 var text;
 var sc = '1990';
-const service_id;
+var service_id;
 
 let data = {
   "msisdn":     "38977772032",
