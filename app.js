@@ -19,6 +19,16 @@ var signature;
 var data;
 var platform;
 var fallbackText;
+var fileUrl;
+var fileName;
+var buttonName;
+var buttonUrl;
+var imageUrl;
+var videoUrl;
+var videoSize;
+var videoDuration;
+var thumbnailUrl;
+
 
 app.post("/mcargs", (req, res) => {
   console.log("START");
