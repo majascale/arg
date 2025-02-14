@@ -72,7 +72,6 @@ console.log('Text:  ' + text);
         console.log(json)
     });
 
-  //console.log('Response Body is: ' + JSON.parse(response.body));
   console.log("END");
   res.send('End');
 
