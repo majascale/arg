@@ -47,7 +47,7 @@ app.post("/mcargs", (req, res) => {
     case 'sms':
        console.log('Type:  ' + type);
        break;
-    case viber:
+    case 'viber':
        console.log('Type:  ' + type);
        break;  
   }
