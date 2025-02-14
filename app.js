@@ -40,6 +40,17 @@ app.post("/mcargs", (req, res) => {
   console.log('Type:  ' + type);
   console.log('Msisdn:  ' + msisdn);
   console.log('Text:  ' + text);
+
+  //if(type == 'sms'){
+  //}
+  switch (type){
+    case sms:
+       console.log('Type:  ' + type);
+       break;
+    case viber:
+       console.log('Type:  ' + type);
+       break;  
+  }
   
   let data = {
      "msisdn":      msisdn,
