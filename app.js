@@ -43,6 +43,7 @@ app.post("/mcargs", (req, res) => {
     }
    if (params[i].msisdn == null) {
     }else{
+      //format msisdn remove unnecessary characters
       msisdn = params[i].msisdn;
     }
     if (params[i].text == null) {
