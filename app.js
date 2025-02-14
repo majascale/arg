@@ -16,6 +16,7 @@ var sc_sms = '1990';
 var sc_viber = 'ViberTest';
 var service_id = '2724';
 var signature;
+var data;
 
 app.post("/mcargs", (req, res) => {
   console.log("START");
@@ -45,19 +46,24 @@ app.post("/mcargs", (req, res) => {
   //}
   switch (type){
     case 'sms':
-       console.log('Type:  ' + type);
+       data = {
+          "msisdn":     msisdn,
+          "sc":         sc_sms,
+          "text":       text,
+          "service_id": service_id
+       };
        break;
     case 'viber':
-       console.log('Type:  ' + type);
-       break;  
+        data = {
+           "msisdn":      msisdn,
+            "sc":         sc_viber,
+            "text":       text,
+            "service_id": service_id
+         };
+         break;  
   }
   
-  let data = {
-     "msisdn":      msisdn,
-      "sc":         sc_sms,
-      "text":       text,
-      "service_id": service_id
-  };
+
   data = JSON.stringify(data);
   signature = crypto.createHmac("sha512", secretKey).update(data).digest('hex');
   console.log('Signature: ' + signature);
