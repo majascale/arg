@@ -32,6 +32,7 @@ var thumbnailUrl;
 
 app.post("/mcargs", (req, res) => {
   console.log("START");
+  console.log("REQUEST" + req.toString());
   
   var params = req.body.inArguments;
   console.log("Request Params: " + params);
