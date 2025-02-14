@@ -36,7 +36,6 @@ app.post("/mcargs", (req, res) => {
     }else{
       text = params[i].text;
     }
-    console.log('Index:  ' + i);
   }
   console.log('Type:  ' + type);
   console.log('Msisdn:  ' + msisdn);
