@@ -12,13 +12,13 @@ const secretKey = "$2y$10$DHkc4KUis70s57hQvBPrfOBlbj.tonKXniTjUBpArymaVqOXxgcn."
 var type;
 var msisdn;
 var text;
-var sc = '1990';
+var sc_sms = '1990';
 var service_id = '2724';
 var signature;
 
 app.post("/mcargs", (req, res) => {
   console.log("START");
-  //simplify to drill down than add arguments.execute
+  
   var params = req.body.inArguments;
   console.log("Request Params: " + params);
   
@@ -43,7 +43,7 @@ console.log('Text:  ' + text);
   
   let data = {
      "msisdn":      msisdn,
-      "sc":         sc,
+      "sc":         sc_sms,
       "text":       text,
       "service_id": service_id
   };
