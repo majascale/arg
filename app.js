@@ -24,23 +24,23 @@ app.post("/mcargs", (req, res) => {
   console.log("Request Params: " + params);
   
   for(var i in params){
-   if (params[i].type == null) {
-   }else{
+    if (params[i].type == null) {
+    }else{
       type = params[i].type;
-   }
-  if (params[i].msisdn == null) {
-   }else{
+    }
+   if (params[i].msisdn == null) {
+    }else{
       msisdn = params[i].msisdn;
-   }
-   if (params[i].text == null) {
-   }else{
+    }
+    if (params[i].text == null) {
+    }else{
       text = params[i].text;
-   }
-   console.log('Index:  ' + i);
-}
-console.log('Type:  ' + type);
-console.log('Msisdn:  ' + msisdn);
-console.log('Text:  ' + text);
+    }
+    console.log('Index:  ' + i);
+  }
+  console.log('Type:  ' + type);
+  console.log('Msisdn:  ' + msisdn);
+  console.log('Text:  ' + text);
   
   let data = {
      "msisdn":      msisdn,
