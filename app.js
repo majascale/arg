@@ -8,13 +8,16 @@ app.use(express.json());
 const crypto = require('crypto');
 const apiKey = '$2y$10$cVc5FU0gmzvnMcHS5wi.9erdJ1qPsKjTv1RjYfNopLeC10Nfyl7cm';
 const secretKey = "$2y$10$DHkc4KUis70s57hQvBPrfOBlbj.tonKXniTjUBpArymaVqOXxgcn.";
+const sc_sms = '1990';
+const sc_viber = 'ViberTest';
+const service_id = '2724';
 
 var type;
 var msisdn;
 var text;
-var sc_sms = '1990';
-var sc_viber = 'ViberTest';
-var service_id = '2724';
+//var sc_sms = '1990';
+//var sc_viber = 'ViberTest';
+//var service_id = '2724';
 var signature;
 var data;
 
@@ -42,8 +45,6 @@ app.post("/mcargs", (req, res) => {
   console.log('Msisdn:  ' + msisdn);
   console.log('Text:  ' + text);
 
-  //if(type == 'sms'){
-  //}
   switch (type){
     case 'sms':
        data = {
