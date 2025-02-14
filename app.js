@@ -13,6 +13,7 @@ var type;
 var msisdn;
 var text;
 var sc_sms = '1990';
+var sc_viber = 'ViberTest';
 var service_id = '2724';
 var signature;
 
