@@ -33,9 +33,9 @@ var thumbnailUrl;
 app.post("/mcargs", (req, res) => {
   console.log("START");
   
-  
   var params = req.body.inArguments;
   console.log("Request Params: " + params);
+  console.log("Request Event: " + JSON.stringify(req.body.inArguments[3]));
   
   for(var i in params){
     if (params[i].type == null) {
