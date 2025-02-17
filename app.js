@@ -52,10 +52,15 @@ app.post("/mcargs", (req, res) => {
     }else{
       text = params[i].text;
     }
+    if (params[i].platform == null) {
+    }else{
+      platform = params[i].platform;
+    }
   }
   console.log('Type:  ' + type);
   console.log('Msisdn:  ' + msisdn);
   console.log('Text:  ' + text);
+  console.log('Platform: ' + platform);
 
   switch (type){
     case 'sms':
@@ -71,7 +76,8 @@ app.post("/mcargs", (req, res) => {
            "msisdn":      msisdn,
             "sc":         sc_viber,
             "text":       text,
-            "service_id": service_id
+            "service_id": service_id,
+            "platform": platform
          };
          break;  
   }
