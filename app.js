@@ -30,6 +30,7 @@ var videoDuration;
 var thumbnailUrl;
 
 
+
 app.post("/mcargs", (req, res) => {
   console.log("START");
   
@@ -68,6 +69,11 @@ app.post("/mcargs", (req, res) => {
     }else{
       imageUrl = params[i].imageUrl;
     }
+    if (params[i].fallbackText == null) {
+    }else{
+      fallbackText = params[i].fallbackText;
+      fallback = { "sms" : fallbackText};
+    }
   }
   console.log('Type: ' + type);
   console.log('Msisdn: ' + msisdn);
@@ -76,6 +82,7 @@ app.post("/mcargs", (req, res) => {
   console.log('Button Name: ' + buttonName);
   console.log('Button Url: ' + buttonUrl);
   console.log('Image Url: ' + imageUrl);
+  console.log('Fallback Text: ' + fallbackText);
   
 
   switch (type){
@@ -86,7 +93,7 @@ app.post("/mcargs", (req, res) => {
           "text":       text,
           "service_id": service_id
        };
-       break;
+    break;
     case 'viber + text':
       //dynamic change of what is populated to be implemented
         data = {
@@ -97,9 +104,10 @@ app.post("/mcargs", (req, res) => {
             "platform":    platform,
             "ButtonName":  buttonName,
             "ButtonUrl":   buttonUrl,
-            "ImageUrl":    imageUrl
+            "ImageUrl":    imageUrl,
+            "fallback":    fallback
          };
-         break;  
+    break;  
   }
   
 
