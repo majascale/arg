@@ -64,6 +64,10 @@ app.post("/mcargs", (req, res) => {
     }else{
       buttonUrl = params[i].buttonUrl;
     }
+    if (params[i].imageUrl == null) {
+    }else{
+      imageUrl = params[i].imageUrl;
+    }
   }
   console.log('Type:  ' + type);
   console.log('Msisdn:  ' + msisdn);
@@ -84,13 +88,14 @@ app.post("/mcargs", (req, res) => {
        break;
     case 'viber + text':
         data = {
-           "msisdn":       msisdn,
+            "msisdn":      msisdn,
             "sc":          sc_viber,
             "text":        text,
             "service_id":  service_id,
             "platform":    platform,
             "ButtonName":  buttonName,
-            "ButtonUrl":   buttonUrl
+            "ButtonUrl":   buttonUrl,
+            "ImageUrl":    imageUrl
          };
          break;  
   }
@@ -98,6 +103,7 @@ app.post("/mcargs", (req, res) => {
 
   data = JSON.stringify(data);
   signature = crypto.createHmac("sha512", secretKey).update(data).digest('hex');
+  console.log('Data: ' + data);
   console.log('Signature: ' + signature);
   
   const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
