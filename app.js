@@ -35,7 +35,7 @@ app.post("/mcargs", (req, res) => {
   
   var params = req.body.inArguments;
   console.log("Request Params: " + params);
-  console.log("Request Event: " + JSON.stringify(req.body.inArguments[3]));
+  //console.log("Request Event: " + JSON.stringify(req.body.inArguments[3]));
   
   for(var i in params){
     if (params[i].type == null) {
@@ -56,11 +56,22 @@ app.post("/mcargs", (req, res) => {
     }else{
       platform = params[i].platform;
     }
+    if (params[i].buttonName == null) {
+    }else{
+      buttonName = params[i].buttonName;
+    }
+    if (params[i].buttonUrl == null) {
+    }else{
+      buttonUrl = params[i].buttonUrl;
+    }
   }
   console.log('Type:  ' + type);
   console.log('Msisdn:  ' + msisdn);
   console.log('Text:  ' + text);
   console.log('Platform: ' + platform);
+  console.log('Button Name: ' + buttonName);
+  console.log('Button Url: ' + buttonUrl);
+  
 
   switch (type){
     case 'sms':
@@ -73,11 +84,13 @@ app.post("/mcargs", (req, res) => {
        break;
     case 'viber + text':
         data = {
-           "msisdn":      msisdn,
-            "sc":         sc_viber,
-            "text":       text,
-            "service_id": service_id,
-            "platform": platform
+           "msisdn":       msisdn,
+            "sc":          sc_viber,
+            "text":        text,
+            "service_id":  service_id,
+            "platform":    platform,
+            "ButtonName":  buttonName,
+            "ButtonUrl":   buttonUrl
          };
          break;  
   }
