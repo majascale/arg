@@ -96,6 +96,12 @@ app.post("/mcargs", (req, res) => {
     break;
     case 'viber + text':
       //dynamic change of what is populated to be implemented
+      /*let jsonObject = {
+       key1: 'value1',
+       key2: 'value2'
+       };
+       jsonObject.newKey = 'newValue';
+       console.log(jsonObject);*/
         data = {
             "msisdn":      msisdn,
             "sc":          sc_viber,
