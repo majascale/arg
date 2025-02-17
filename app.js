@@ -69,12 +69,13 @@ app.post("/mcargs", (req, res) => {
       imageUrl = params[i].imageUrl;
     }
   }
-  console.log('Type:  ' + type);
-  console.log('Msisdn:  ' + msisdn);
-  console.log('Text:  ' + text);
+  console.log('Type: ' + type);
+  console.log('Msisdn: ' + msisdn);
+  console.log('Text: ' + text);
   console.log('Platform: ' + platform);
   console.log('Button Name: ' + buttonName);
   console.log('Button Url: ' + buttonUrl);
+  console.log('Image Url: ' + imageUrl);
   
 
   switch (type){
@@ -87,6 +88,7 @@ app.post("/mcargs", (req, res) => {
        };
        break;
     case 'viber + text':
+      //dynamic change of what is populated to be implemented
         data = {
             "msisdn":      msisdn,
             "sc":          sc_viber,
