@@ -41,10 +41,11 @@ app.post("/mcargs", (req, res) => {
     if (params[i].type == null) {
     }else{
       type = params[i].type;
+      //check for the correct type here and throw an error?
     }
    if (params[i].msisdn == null) {
     }else{
-      //format msisdn remove unnecessary characters
+      //format msisdn remove unnecessary characters?
       msisdn = params[i].msisdn;
     }
     if (params[i].text == null) {
@@ -65,7 +66,7 @@ app.post("/mcargs", (req, res) => {
           "service_id": service_id
        };
        break;
-    case 'viber':
+    case 'viber + text':
         data = {
            "msisdn":      msisdn,
             "sc":         sc_viber,
