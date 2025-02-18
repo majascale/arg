@@ -263,6 +263,8 @@ app.post("/mcargs", (req, res) => {
         console.log(json)
     });
 
+  type = null;
+  msisdn = null;
   text = null;
   platform = null;
   fallbackText = null;
