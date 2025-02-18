@@ -202,12 +202,21 @@ app.post("/mcargs", (req, res) => {
         console.log(json)
     });
 
+  text = null;
+  platform = null;
+  fallbackText = null;
+  fileUrl = null;
+  fileName = null;
+  buttonUrl = null;
+  buttonName = null;
+  imageUrl = null;
+  videoUrl = null;
+  videoSize = null;
+  videoDuration = null;
+  thumbnailUrl = null;
   
   console.log("END");
   res.send('End');
-
-
-  
 
 });
 
