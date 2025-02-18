@@ -112,11 +112,15 @@ app.post("/mcargs", (req, res) => {
   switch (type){
     case 'sms':
        data = {
-          "msisdn":     msisdn,
           "sc":         sc_sms,
-          "text":       text,
           "service_id": service_id
        };
+       if(msisdn != null){
+         data.msisdn = msisdn;
+       }
+       if(text != null){
+         data.text = text;
+       }
     break;
     case 'viber + text':
        data = {
