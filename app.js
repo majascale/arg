@@ -19,8 +19,8 @@ var signature;
 var data;
 var platform;
 var fallbackText;
-var fileUrl = null;
-var fileName = null;
+var fileUrl;
+var fileName;
 var buttonName;
 var buttonUrl;
 var imageUrl;
@@ -205,9 +205,12 @@ app.post("/mcargs", (req, res) => {
         console.log(json)
     });
 
+  
   console.log("END");
   res.send('End');
   //reset the variables at the end!!!
+  fileUrl = null;
+  fileName = null;
 
 });
 
