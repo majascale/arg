@@ -29,6 +29,7 @@ var videoSize;
 var videoDuration;
 var thumbnailUrl;
 
+//check for the correct type here and throw an error?
 app.post("/mcargs", (req, res) => {
   console.log("START");
   
@@ -39,7 +40,6 @@ app.post("/mcargs", (req, res) => {
       res.send('Missing Type');
     }else{
       type = params[i].type;
-      //check for the correct type here and throw an error?
     }
    if (params[i].msisdn == null) {
     }else{
