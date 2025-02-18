@@ -68,7 +68,6 @@ app.post("/mcargs", (req, res) => {
     if (params[i].fallbackText == null) {
     }else{
       fallbackText = params[i].fallbackText;
-      //fallback = { "sms" : fallbackText};
     }
     if (params[i].fileUrl == null) {
     }else{
@@ -122,10 +121,14 @@ app.post("/mcargs", (req, res) => {
     case 'viber + text':
        data = {
             "sc":          sc_viber,
-            "service_id":  service_id,
-            "msisdn":      msisdn,
-            "text":        text
+            "service_id":  service_id
        };
+       if(msisdn != null){
+         data.msisdn = msisdn;
+       }
+       if(text != null){
+         data.text = text;
+       }
        if(platform != null){
          data.platform = platform;
        }
@@ -145,9 +148,10 @@ app.post("/mcargs", (req, res) => {
     case 'viber + file':
          data = {
             "sc":          sc_viber,
-            "service_id":  service_id
+            "service_id":  service_id,
+            "msisdn":      msisdn
          };
-         data.msisdn = msisdn;
+         
          data.platform = platform;
          data.fallback = fallback;
          data.FileUrl = fileUrl;
