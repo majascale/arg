@@ -74,6 +74,14 @@ app.post("/mcargs", (req, res) => {
       fallbackText = params[i].fallbackText;
       fallback = { "sms" : fallbackText};
     }
+    if (params[i].fileUrl == null) {
+    }else{
+      fileUrl = params[i].fileUrl;
+    }
+    if (params[i].fileName == null) {
+    }else{
+      fileName = params[i].fileName;
+    }
   }
   console.log('Type: ' + type);
   console.log('Msisdn: ' + msisdn);
@@ -83,7 +91,8 @@ app.post("/mcargs", (req, res) => {
   console.log('Button Url: ' + buttonUrl);
   console.log('Image Url: ' + imageUrl);
   console.log('Fallback Text: ' + fallbackText);
-  
+  console.log('File Url: ' + fileUrl);
+  console.log('File Name: ' + fileName);
 
   switch (type){
     case 'sms':
@@ -95,13 +104,6 @@ app.post("/mcargs", (req, res) => {
        };
     break;
     case 'viber + text':
-      //dynamic change of what is populated to be implemented
-      /*let jsonObject = {
-       key1: 'value1',
-       key2: 'value2'
-       };
-       jsonObject.newKey = 'newValue';
-       console.log(jsonObject);*/
         data = {
             "msisdn":      msisdn,
             "sc":          sc_viber,
@@ -112,7 +114,18 @@ app.post("/mcargs", (req, res) => {
             "ButtonUrl":   buttonUrl,
             "ImageUrl":    imageUrl,
             "fallback":    fallback
+        };
+    break;  
+    case 'viber + file':
+         data = {
+            "sc":          sc_viber,
+            "service_id":  service_id
          };
+         data.msisdn = msisdn;
+         data.platform = platform;
+         data.fallback = fallback;
+         data.FileUrl = fileUrl;
+         data.FileName = fileName;
     break;  
   }
   
