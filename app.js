@@ -148,29 +148,56 @@ app.post("/mcargs", (req, res) => {
     case 'viber + file':
          data = {
             "sc":          sc_viber,
-            "service_id":  service_id,
-            "msisdn":      msisdn
+            "service_id":  service_id
          };
-         
-         data.platform = platform;
-         data.fallback = fallback;
-         data.FileUrl = fileUrl;
-         data.FileName = fileName;
+         if(msisdn != null){
+            data.msisdn = msisdn;
+         }
+         if(platform != null){
+            data.platform = platform;
+         }
+         if(fallbackText != null){
+            data.fallback = {"sms" : fallbackText};
+         }
+         if(fileUrl != null){
+            data.FileUrl = fileUrl;
+         }
+         if(FileName != null){
+            data.FileName = FileName;
+         }
     break;  
     case 'viber + video':
          data = {
             "sc":          sc_viber,
             "service_id":  service_id
          };
-         data.msisdn = msisdn;
-         data.platform = platform;
-         data.fallback = fallback;
-         data.ButtonName = buttonName;
-         data.ButtonUrl = buttonUrl;
-         data.VideoUrl = videoUrl;
-         data.VideoSize = videoSize;
-         data.Duration = videoDuration;
-         data.ThumbnailUrl = thumbnailUrl;
+         if(msisdn != null){
+            data.msisdn = msisdn;
+         }
+         if(platform != null){
+            data.platform = platform;
+         }
+         if(fallbackText != null){
+            data.fallback = {"sms" : fallbackText};
+         }
+         if(buttonName != null){
+            data.ButtonName = buttonName;
+         } 
+         if(buttonUrl != null){
+            data.ButtonUrl = buttonUrl;
+         } 
+         if(videoUrl != null){
+            data.VideoUrl = videoUrl;
+         } 
+         if(videoSize != null){
+            data.VideoSize = videoSize;
+         } 
+         if(videoDuration != null){
+            data.Duration = videoDuration;
+         } 
+         if(thumbnailUrl != null){
+            data.ThumbnailUrl = thumbnailUrl;
+         } 
     break;    
     case 'viber + text + video':
          data = {
