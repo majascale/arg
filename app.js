@@ -35,7 +35,6 @@ app.post("/mcargs", (req, res) => {
   console.log("START");
   
   var params = req.body.inArguments;
-  console.log("Request Params: " + params);
   //console.log("Request Event: " + JSON.stringify(req.body.inArguments[3]));
   
   for(var i in params){
@@ -167,7 +166,16 @@ app.post("/mcargs", (req, res) => {
             "sc":          sc_viber,
             "service_id":  service_id
          };
-
+         data.msisdn = msisdn;
+         data.text = text;
+         data.platform = platform;
+         data.fallback = fallback;
+         data.ButtonName = buttonName;
+         data.ButtonUrl = buttonUrl;
+         data.VideoUrl = videoUrl;
+         data.VideoSize = videoSize;
+         data.Duration = videoDuration;
+         data.ThumbnailUrl = thumbnailUrl;
     break;      
   }
   
