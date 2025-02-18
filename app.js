@@ -162,6 +162,13 @@ app.post("/mcargs", (req, res) => {
          data.Duration = videoDuration;
          data.ThumbnailUrl = thumbnailUrl;
     break;    
+    case 'viber + text + video':
+         data = {
+            "sc":          sc_viber,
+            "service_id":  service_id
+         };
+
+    break;      
   }
   
 
