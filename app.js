@@ -29,13 +29,10 @@ var videoSize;
 var videoDuration;
 var thumbnailUrl;
 
-
-
 app.post("/mcargs", (req, res) => {
   console.log("START");
   
   var params = req.body.inArguments;
-  //console.log("Request Event: " + JSON.stringify(req.body.inArguments[3]));
   
   for(var i in params){
     if (params[i].type == null) {
@@ -208,9 +205,24 @@ app.post("/mcargs", (req, res) => {
   
   console.log("END");
   res.send('End');
-  //reset the variables at the end!!!
+
+  type = null;
+  msisdn = null;
+  text = null;
+  signature = null;
+  data = null;
+  platform = null;
+  fallbackText = null;
   fileUrl = null;
   fileName = null;
+  buttonName = null;
+  buttonUrl = null;
+  imageUrl = null;
+  videoUrl = null;
+  videoSize = null;
+  videoDuration = null;
+  thumbnailUrl = null;
+  
 
 });
 
