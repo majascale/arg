@@ -38,6 +38,7 @@ app.post("/mcargs", (req, res) => {
     if (params[i].type == null) {
     }else{
       type = params[i].type;
+      res.send('Type is missing');
       //check for the correct type here and throw an error?
     }
    if (params[i].msisdn == null) {
@@ -283,7 +284,7 @@ app.post("/mcargs", (req, res) => {
   thumbnailUrl = null;
   
   console.log("END");
-  res.send('End');
+ // res.send('End');
 
 });
 
