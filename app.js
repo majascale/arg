@@ -38,7 +38,7 @@ app.post("/mcargs", (req, res) => {
     if (params[i].type == null) {
     }else{
       type = params[i].type;
-      return res.send('Type is missing');
+      res.end('Missing type!');
       //check for the correct type here and throw an error?
     }
    if (params[i].msisdn == null) {
