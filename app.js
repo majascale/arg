@@ -82,6 +82,22 @@ app.post("/mcargs", (req, res) => {
     }else{
       fileName = params[i].fileName;
     }
+    if (params[i].videoUrl == null) {
+    }else{
+      videoUrl = params[i].videoUrl;
+    }
+    if (params[i].videoSize == null) {
+    }else{
+      videoSize = params[i].videoSize;
+    }
+    if (params[i].videoDuration == null) {
+    }else{
+      videoDuration = params[i].videoDuration;
+    }
+    if (params[i].thumbnailUrl == null) {
+    }else{
+      thumbnailUrl = params[i].thumbnailUrl;
+    }
   }
   console.log('Type: ' + type);
   console.log('Msisdn: ' + msisdn);
@@ -93,6 +109,10 @@ app.post("/mcargs", (req, res) => {
   console.log('Fallback Text: ' + fallbackText);
   console.log('File Url: ' + fileUrl);
   console.log('File Name: ' + fileName);
+  console.log('Video Url: ' + videoUrl);
+  console.log('Video Size: ' + videoSize);
+  console.log('Video Duration: ' + videoDuration);
+  console.log('Thumbnail Url: ' + thumbnailUrl);
 
   switch (type){
     case 'sms':
@@ -127,6 +147,21 @@ app.post("/mcargs", (req, res) => {
          data.FileUrl = fileUrl;
          data.FileName = fileName;
     break;  
+    case 'viber + video':
+         data = {
+            "sc":          sc_viber,
+            "service_id":  service_id
+         };
+         data.msisdn = msisdn;
+         data.platform = platform;
+         data.fallback = fallback;
+         data.ButtonName = buttonName;
+         data.ButtonUrl = buttonUrl;
+         data.VideoUrl = videoUrl;
+         data.VideoSize = videoSize;
+         data.Duration = videoDuration;
+         data.ThumbnailUrl = thumbnailUrl;
+    break;    
   }
   
 
@@ -157,6 +192,7 @@ app.post("/mcargs", (req, res) => {
 
   console.log("END");
   res.send('End');
+  //reset the variables at the end!!!
 
 });
 
