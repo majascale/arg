@@ -204,16 +204,36 @@ app.post("/mcargs", (req, res) => {
             "sc":          sc_viber,
             "service_id":  service_id
          };
-         data.msisdn = msisdn;
-         data.text = text;
-         data.platform = platform;
-         data.fallback = fallback;
-         data.ButtonName = buttonName;
-         data.ButtonUrl = buttonUrl;
-         data.VideoUrl = videoUrl;
-         data.VideoSize = videoSize;
-         data.Duration = videoDuration;
-         data.ThumbnailUrl = thumbnailUrl;
+         if(msisdn != null){
+            data.msisdn = msisdn;
+         }
+         if(text != null){
+            data.text = text;
+         }
+         if(platform != null){
+            data.platform = platform;
+         }
+         if(fallbackText != null){
+            data.fallback = {"sms" : fallbackText};
+         }
+         if(buttonName != null){
+            data.ButtonName = buttonName;
+         } 
+         if(buttonUrl != null){
+            data.ButtonUrl = buttonUrl;
+         } 
+         if(videoUrl != null){
+            data.VideoUrl = videoUrl;
+         } 
+         if(videoSize != null){
+            data.VideoSize = videoSize;
+         } 
+         if(videoDuration != null){
+            data.Duration = videoDuration;
+         } 
+         if(thumbnailUrl != null){
+            data.ThumbnailUrl = thumbnailUrl;
+         } 
     break;      
   }
   
