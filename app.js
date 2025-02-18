@@ -105,16 +105,16 @@ app.post("/mcargs", (req, res) => {
     break;
     case 'viber + text':
         data = {
-            "msisdn":      msisdn,
             "sc":          sc_viber,
-            "text":        text,
             "service_id":  service_id,
-            "platform":    platform,
-            "ButtonName":  buttonName,
-            "ButtonUrl":   buttonUrl,
-            "ImageUrl":    imageUrl,
-            "fallback":    fallback
         };
+       data.msisdn = msisdn;
+       data.text = text;
+       data.platform = platform;
+       data.fallback = fallback;
+       data.ButtonName = buttonName;
+       data.ButtonUrl = buttonUrl;
+       data.ImageUrl = imageUrl;
     break;  
     case 'viber + file':
          data = {
