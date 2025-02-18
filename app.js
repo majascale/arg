@@ -162,8 +162,8 @@ app.post("/mcargs", (req, res) => {
          if(fileUrl != null){
             data.FileUrl = fileUrl;
          }
-         if(FileName != null){
-            data.FileName = FileName;
+         if(fileName != null){
+            data.FileName = fileName;
          }
     break;  
     case 'viber + video':
