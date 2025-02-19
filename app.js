@@ -11,6 +11,7 @@ const secretKey = "$2y$10$DHkc4KUis70s57hQvBPrfOBlbj.tonKXniTjUBpArymaVqOXxgcn."
 const sc_sms = '1990';
 const sc_viber = 'ViberTest';
 const service_id = '2724';
+const url = 'https://api-test.msghub.cloud/send';
 
 var type;
 var msisdn;
@@ -262,7 +263,8 @@ app.post("/mcargs", (req, res) => {
   
   const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
   fetch(
-        'https://api-test.msghub.cloud/send',
+        url,
+        //'https://api-test.msghub.cloud/send',
     {
         method: 'POST',
         body: data,
