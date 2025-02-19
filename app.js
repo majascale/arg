@@ -34,8 +34,7 @@ app.post("/mcargs", (req, res) => {
   console.log("START");
   
   var params = req.body.inArguments;
-  console.log('TypeIn: ' + req.body.inArguments[0]);
-  
+
   for(var i in params){
     if (params[i].type == null) {
     }else{
@@ -284,7 +283,7 @@ app.post("/mcargs", (req, res) => {
   thumbnailUrl = null;
   
   console.log("END");
-  //res.send('End');
+  res.send('End');
 
 });
 
