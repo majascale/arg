@@ -34,10 +34,10 @@ app.post("/mcargs", (req, res) => {
   console.log("START");
   
   var params = req.body.inArguments;
+  console.log('TypeIn: ' + req.body.inArguments[0]);
   
   for(var i in params){
     if (params[i].type == null) {
-      res.send('Missing Type');
     }else{
       type = params[i].type;
     }
