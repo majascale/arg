@@ -29,9 +29,22 @@ var videoSize;
 var videoDuration;
 var thumbnailUrl;
 
-//check for the correct type here and throw an error?
 app.post("/mcargs", (req, res) => {
   console.log("START");
+  type = null;
+  msisdn = null;
+  text = null;
+  platform = null;
+  fallbackText = null;
+  fileUrl = null;
+  fileName = null;
+  buttonUrl = null;
+  buttonName = null;
+  imageUrl = null;
+  videoUrl = null;
+  videoSize = null;
+  videoDuration = null;
+  thumbnailUrl = null;
   
   var params = req.body.inArguments;
 
@@ -267,7 +280,7 @@ app.post("/mcargs", (req, res) => {
         console.log(json)
     });
 
-  type = null;
+  /*type = null;
   msisdn = null;
   text = null;
   platform = null;
@@ -280,7 +293,7 @@ app.post("/mcargs", (req, res) => {
   videoUrl = null;
   videoSize = null;
   videoDuration = null;
-  thumbnailUrl = null;
+  thumbnailUrl = null;*/
   
   console.log("END");
   res.send('End');
