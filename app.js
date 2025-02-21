@@ -136,7 +136,7 @@ app.post("/mcargs", (req, res) => {
          data.text = text;
        }
     break;
-    case 'viber + text':
+    case 'viber+text':
        data = {
             "sc":          sc_viber,
             "service_id":  service_id
