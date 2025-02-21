@@ -184,7 +184,7 @@ app.post("/mcargs", (req, res) => {
             data.FileName = fileName;
          }
     break;  
-    case 'viber + video':
+    case 'viber+video':
          data = {
             "sc":          sc_viber,
             "service_id":  service_id
