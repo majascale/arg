@@ -163,7 +163,7 @@ app.post("/mcargs", (req, res) => {
          data.ImageUrl = imageUrl;
        } 
     break;  
-    case 'viber + file':
+    case 'viber+file':
          data = {
             "sc":          sc_viber,
             "service_id":  service_id
