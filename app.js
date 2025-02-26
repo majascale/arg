@@ -32,6 +32,7 @@ var thumbnailUrl;
 
 app.post("/mcargs", (req, res) => {
   console.log("START");
+  console.log("Request is: " + req);
   type = null;
   msisdn = null;
   text = null;
@@ -264,7 +265,6 @@ app.post("/mcargs", (req, res) => {
   const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
   fetch(
         url,
-        //'https://api-test.msghub.cloud/send',
     {
         method: 'POST',
         body: data,
@@ -282,20 +282,6 @@ app.post("/mcargs", (req, res) => {
         console.log(json)
     });
 
-  /*type = null;
-  msisdn = null;
-  text = null;
-  platform = null;
-  fallbackText = null;
-  fileUrl = null;
-  fileName = null;
-  buttonUrl = null;
-  buttonName = null;
-  imageUrl = null;
-  videoUrl = null;
-  videoSize = null;
-  videoDuration = null;
-  thumbnailUrl = null;*/
   
   console.log("END");
   res.send('End');
