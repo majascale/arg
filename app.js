@@ -41,7 +41,8 @@ app.post("/mcargs", bodyParser.raw({type: "application/jwt"}),
              async (err, decodedPayload) => {
                console.log('Decoded Payload is: ' + decodedPayload);
              }
-           )
+           );
+         }
 );         
 
 
