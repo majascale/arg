@@ -52,6 +52,7 @@ app.post("/mcargs", bodyParser.raw({type: "application/jwt"}),
 app.post("/mcargs", (req, res) => {
   console.log("START");
   //start test for jwt
+  console.log("Request Body: " + req.body.toString('utf8'));  
   require('jsonwebtoken').verify(req.body.toString('utf8'), 'yoursecret', {
         algorithm: 'HS256'
     }, (err, decoded) => {
