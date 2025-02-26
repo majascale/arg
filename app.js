@@ -32,33 +32,19 @@ var imageUrl;
 var videoUrl;
 var videoSize;
 var videoDuration;
-var thumbnailUrl;
-
-/*test code
-app.post("/mcargs", bodyParser.raw({type: "application/jwt"}),
-         async function (req, res){
-           jsonwebtoken.verify(
-             req.body.toString('utf8'),
-             yoursecret,
-             {algorithm: "HS256"},
-             async (err, decodedPayload) => {
-               console.log('Decoded Payload is: ' + decodedPayload);
-             }
-           );
-         }
-); */        
+var thumbnailUrl;    
 
 
 app.post("/mcargs", (req, res) => {
   console.log("START");
   //start test for jwt
-  console.log("Request Body: " + req.body.toString('utf8'));  
-  require('jsonwebtoken').verify(req.body.toString('utf8'), 'yoursecret', {
+  console.log("Request Body: " + req.body.inArguments.toString('utf8'));  
+  require('jsonwebtoken').verify(req.body.inArguments.toString('utf8'), 'yoursecret', {
         algorithm: 'HS256'
     }, (err, decoded) => {
         // If the token was invalid err is set, otherwise the decoded payload can be found in decoded
         console.log('Decoded: ' + decoded);
-        console.log('Err: ' + err);
+        //console.log('Err: ' + err);
     }); 
    //end test for jwt      
   
