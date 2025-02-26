@@ -45,7 +45,8 @@ app.post("/mcargs", (req, res) => {
         algorithm: 'HS256'
     }, (err, decoded) => {
         // If the token was invalid err is set, otherwise the decoded payload can be found in decoded
-        console.log('Err for JWT');
+        console.log('Decoded: ' + decoded);
+        console.log('Err: ' + err);
     });
 
 
