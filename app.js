@@ -12,6 +12,7 @@ const sc_sms = '1990';
 const sc_viber = 'ViberTest';
 const service_id = '2724';
 const url = 'https://api-test.msghub.cloud/send';
+var yoursecret = 'lyLs_fmNXO7tVLgFnd5xvjZqloLnyBfpbdSfF-QohKjpVXjC_LoZJGsZiFPnHxT_PRTEjYJZ8k0TmdAsqK_mGtbPiVGFOtIHvHIexN1noxYazGLr2iY4_1X7tRp4F2dncqUvMLub_-l_aKdkBIBiUIQTutNaGbrI1ZOELnC_7r22rKWMlQ-UdPQ3kBTdz3iZv8mHSLdF3tKOrNhf6d1zAnkvo_l9N9BFjKqmIKNko01Qh_GfOHJ10Ysm0hMbuQ2';
 
 var type;
 var msisdn;
@@ -30,7 +31,21 @@ var videoSize;
 var videoDuration;
 var thumbnailUrl;
 
-app.post("/mcargs", (req, res) => {
+//test code
+app.post("/mcargs", bodyParser.raw({type: "application/jwt"}),
+         async function (req, res){
+           jsonwebtoken.verify(
+             req.body.toString('utf8'),
+             yoursecret,
+             {algorithm: "HS256"},
+             async (err, decodedPayload) => {
+               console.log('Decoded Payload is: ' + decodedPayload)'
+             }
+           )
+);         
+
+
+/*app.post("/mcargs", (req, res) => {
   console.log("START");
   
   type = null;
@@ -286,6 +301,6 @@ app.post("/mcargs", (req, res) => {
   console.log("END");
   res.send('End');
 
-});
+});*/
 
 app.listen( port, () => console.log( `App listening on port ${port}!`) )
