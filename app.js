@@ -4,6 +4,9 @@ var app = express();
 var port = process.env.PORT || 3000
 
 app.use(express.json());
+app.use(require('body-parser').raw({
+    type: 'application/jwt'
+}));
 
 const crypto = require('crypto');
 const apiKey = '$2y$10$cVc5FU0gmzvnMcHS5wi.9erdJ1qPsKjTv1RjYfNopLeC10Nfyl7cm';
@@ -12,7 +15,7 @@ const sc_sms = '1990';
 const sc_viber = 'ViberTest';
 const service_id = '2724';
 const url = 'https://api-test.msghub.cloud/send';
-var yoursecret = 'lyLs_fmNXO7tVLgFnd5xvjZqloLnyBfpbdSfF-QohKjpVXjC_LoZJGsZiFPnHxT_PRTEjYJZ8k0TmdAsqK_mGtbPiVGFOtIHvHIexN1noxYazGLr2iY4_1X7tRp4F2dncqUvMLub_-l_aKdkBIBiUIQTutNaGbrI1ZOELnC_7r22rKWMlQ-UdPQ3kBTdz3iZv8mHSLdF3tKOrNhf6d1zAnkvo_l9N9BFjKqmIKNko01Qh_GfOHJ10Ysm0hMbuQ2';
+const yoursecret = 'lyLs_fmNXO7tVLgFnd5xvjZqloLnyBfpbdSfF-QohKjpVXjC_LoZJGsZiFPnHxT_PRTEjYJZ8k0TmdAsqK_mGtbPiVGFOtIHvHIexN1noxYazGLr2iY4_1X7tRp4F2dncqUvMLub_-l_aKdkBIBiUIQTutNaGbrI1ZOELnC_7r22rKWMlQ-UdPQ3kBTdz3iZv8mHSLdF3tKOrNhf6d1zAnkvo_l9N9BFjKqmIKNko01Qh_GfOHJ10Ysm0hMbuQ2';
 
 var type;
 var msisdn;
@@ -31,7 +34,7 @@ var videoSize;
 var videoDuration;
 var thumbnailUrl;
 
-//test code
+/*test code
 app.post("/mcargs", bodyParser.raw({type: "application/jwt"}),
          async function (req, res){
            jsonwebtoken.verify(
@@ -43,11 +46,21 @@ app.post("/mcargs", bodyParser.raw({type: "application/jwt"}),
              }
            );
          }
-);         
+); */        
 
 
-/*app.post("/mcargs", (req, res) => {
+app.post("/mcargs", (req, res) => {
   console.log("START");
+ //start test for jwt
+  console.log("Request Body: " + req.body.toString('utf8'));
+  require('jsonwebtoken').verify(req.body.toString('utf8'), 'yoursecret', {
+        algorithm: 'HS256'
+    }, (err, decoded) => {
+        // If the token was invalid err is set, otherwise the decoded payload can be found in decoded
+        console.log('Decoded: ' + decoded);
+        console.log('Err: ' + err);
+    }); 
+   //end test for jwt      
   
   type = null;
   msisdn = null;
@@ -302,6 +315,6 @@ app.post("/mcargs", bodyParser.raw({type: "application/jwt"}),
   console.log("END");
   res.send('End');
 
-});*/
+});
 
 app.listen( port, () => console.log( `App listening on port ${port}!`) )
