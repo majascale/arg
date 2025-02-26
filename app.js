@@ -32,7 +32,7 @@ var thumbnailUrl;
 
 app.post("/mcargs", (req, res) => {
   console.log("START");
-  console.log("Request is: " + req);
+  console.log("REQUEST: " + JSON.stringify(req,null,2));
   type = null;
   msisdn = null;
   text = null;
