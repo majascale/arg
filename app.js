@@ -38,8 +38,9 @@ var thumbnailUrl;
 app.post("/mcargs", (req, res) => {
   console.log("START");
   //start test for jwt
+  
   console.log("Request Body: " + req.body.toString("utf8"));  
-  require('jsonwebtoken').verify(req.body.toString("utf8"), 'yoursecret', {
+  require('jsonwebtoken').verify(req.body.toString("utf8"), yoursecret, {
         algorithm: 'HS256'
     }, (err, decoded) => {
         // If the token was invalid err is set, otherwise the decoded payload can be found in decoded
