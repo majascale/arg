@@ -52,14 +52,23 @@ app.post("/mcargs", bodyParser.raw({type: "application/jwt"}),
 app.post("/mcargs", (req, res) => {
   console.log("START");
  //start test for jwt
-  console.log("Request Body: " + req.body.toString('utf8'));
-  require('jsonwebtoken').verify(req.body.toString('utf8'), 'yoursecret', {
+  console.log("Request Body: " + req.body);
+   function parseJwt (token,part) {
+       var base64Url = token.split('.')[part];
+       var words = crypto.enc.Base64.parse(base64Url);
+       var jsonPayload = crypto.enc.Utf8.stringify(words);
+       return  JSON.parse(jsonPayload);
+    };  
+
+    var body = parseJwt(req.body,1);
+    console.log('Body is: ' + body);
+  /*require('jsonwebtoken').verify(req.body.toString('utf8'), 'yoursecret', {
         algorithm: 'HS256'
     }, (err, decoded) => {
         // If the token was invalid err is set, otherwise the decoded payload can be found in decoded
         console.log('Decoded: ' + decoded);
         console.log('Err: ' + err);
-    }); 
+    }); */
    //end test for jwt      
   
   type = null;
