@@ -5,6 +5,12 @@ var port = process.env.PORT || 3000
 
 app.use(express.json());
 
+//added for jwt
+app.use(require('body-parser').raw({
+    type: 'application/jwt'
+}));
+//
+
 const crypto = require('crypto');
 const apiKey = '$2y$10$cVc5FU0gmzvnMcHS5wi.9erdJ1qPsKjTv1RjYfNopLeC10Nfyl7cm';
 const secretKey = "$2y$10$DHkc4KUis70s57hQvBPrfOBlbj.tonKXniTjUBpArymaVqOXxgcn.";
@@ -32,7 +38,19 @@ var thumbnailUrl;
 
 app.post("/mcargs", (req, res) => {
   console.log("START");
+  //added for jwt
   console.log("Request Body: " + req.body);
+  var yoursecret = 'lyLs_fmNXO7tVLgFnd5xvjZqloLnyBfpbdSfF-QohKjpVXjC_LoZJGsZiFPnHxT_PRTEjYJZ8k0TmdAsqK_mGtbPiVGFOtIHvHIexN1noxYazGLr2iY4_1X7tRp4F2dncqUvMLub_-l_aKdkBIBiUIQTutNaGbrI1ZOELnC_7r22rKWMlQ-UdPQ3kBTdz3iZv8mHSLdF3tKOrNhf6d1zAnkvo_l9N9BFjKqmIKNko01Qh_GfOHJ10Ysm0hMbuQ2';
+  require('jsonwebtoken').verify(req.body.toString('utf8'), 'yoursecret', {
+        algorithm: 'HS256'
+    }, (err, decoded) => {
+        // If the token was invalid err is set, otherwise the decoded payload can be found in decoded
+        console.log('Err for JWT');
+    });
+
+
+
+  
   type = null;
   msisdn = null;
   text = null;
