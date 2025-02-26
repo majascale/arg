@@ -39,7 +39,7 @@ var thumbnailUrl;
 app.post("/mcargs", (req, res) => {
   console.log("START");
   //added for jwt
-  console.log("Request Body: " + req.body);
+  console.log("Request Body: " + req.body.toString('utf8'));
   var yoursecret = 'lyLs_fmNXO7tVLgFnd5xvjZqloLnyBfpbdSfF-QohKjpVXjC_LoZJGsZiFPnHxT_PRTEjYJZ8k0TmdAsqK_mGtbPiVGFOtIHvHIexN1noxYazGLr2iY4_1X7tRp4F2dncqUvMLub_-l_aKdkBIBiUIQTutNaGbrI1ZOELnC_7r22rKWMlQ-UdPQ3kBTdz3iZv8mHSLdF3tKOrNhf6d1zAnkvo_l9N9BFjKqmIKNko01Qh_GfOHJ10Ysm0hMbuQ2';
   require('jsonwebtoken').verify(req.body.toString('utf8'), 'yoursecret', {
         algorithm: 'HS256'
