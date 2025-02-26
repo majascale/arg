@@ -39,7 +39,7 @@ app.post("/mcargs", bodyParser.raw({type: "application/jwt"}),
              yoursecret,
              {algorithm: "HS256"},
              async (err, decodedPayload) => {
-               console.log('Decoded Payload is: ' + decodedPayload)'
+               console.log('Decoded Payload is: ' + decodedPayload);
              }
            )
 );         
