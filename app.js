@@ -64,9 +64,6 @@ app.post("/mcargs", (req, res) => {
         var paramsIn = JSON.stringify(decoded.inArguments[0],null,2);
         console.log('ParamsIn is: ' + paramsIn);
       
-        console.log('Type is: ' + JSON.stringify(decoded.inArguments[0].type,null,2));
-        console.log('Type is: ' + JSON.stringify(decoded.inArguments[0].msisdn,null,2));
-      
         if (JSON.stringify(decoded.inArguments[0].type,null,2) == null) {
         }else{
         type = JSON.stringify(decoded.inArguments[0].type,null,2);
@@ -74,11 +71,10 @@ app.post("/mcargs", (req, res) => {
         if (JSON.stringify(decoded.inArguments[0].msisdn,null,2) == null) {
         }else{
         msisdn = JSON.stringify(decoded.inArguments[0].msisdn,null,2);
-        console.log('Msisdn Before: ' + msisdn);    
         }
         if (JSON.stringify(decoded.inArguments[0].text,null,2) == null) {
         }else{
-        msisdn = JSON.stringify(decoded.inArguments[0].text,null,2);
+        text = JSON.stringify(decoded.inArguments[0].text,null,2);
         }
         if (JSON.stringify(decoded.inArguments[0].platform,null,2) == null) {
         }else{
@@ -152,6 +148,7 @@ app.post("/mcargs", (req, res) => {
               if(text != null){
                  data.text = text;
               }
+              console.log('Data SMS: ' + data);   
            break;
            case 'viber+text':
               data = { 
