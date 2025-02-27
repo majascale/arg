@@ -137,7 +137,7 @@ app.post("/mcargs", (req, res) => {
         console.log('Thumbnail Url: ' + thumbnailUrl); 
 
         console.log(typeof type);
-        console.log(type);
+        console.log('Type 2: ' + type);
         var comp = 'sms';
         console.log(type == comp);  
         console.log(type === comp); 
