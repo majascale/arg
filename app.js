@@ -136,7 +136,8 @@ app.post("/mcargs", (req, res) => {
         console.log('Video Duration: ' + videoDuration);
         console.log('Thumbnail Url: ' + thumbnailUrl); 
 
-         if(JSON.stringify(decoded.inArguments[0].type,null,2) == 'sms'){
+        console.log(typeof type);
+         if(String(type) == 'sms'){
              console.log('TEST SMS');
          }   
 
