@@ -137,9 +137,10 @@ app.post("/mcargs", (req, res) => {
         console.log('Thumbnail Url: ' + thumbnailUrl);
 
 
-        switch(String(type)){
+       try{
+        switch(type){
            case 'sms':
-              data = {
+              /*data = {
                        "sc": sc_sms,
                        "service_id": service_id
               };
@@ -148,13 +149,14 @@ app.post("/mcargs", (req, res) => {
               }
               if(text != null){
                  data.text = text;
-              }
+              }*/
               console.log('Data SMS: ' + data);   
               break;
-           default:   
-              console.log('I am in default' );  
-              console.log('Type in default: ' + String(type));  
-        }
+         }
+       }catch(err) {
+           console.log('Error Message: ' + err.message);
+           
+       }
         
     }); 
     
