@@ -55,7 +55,7 @@ app.post("/mcargs", (req, res) => {
   
   //start test for jwt
   console.log("Request Body: " + req.body.toString("utf8"));
-  var decoded = require('jsonwebtoken').verify(req.body.toString("utf8"), yoursecret, {algorithm: 'HS256'};
+  var decoded = require('jsonwebtoken').verify(req.body.toString("utf8"), yoursecret, {algorithm: 'HS256'});
   console.log('DECODED: ' + JSON.stringify(decoded.inArguments[0],null,2)); 
   /* require('jsonwebtoken').verify(req.body.toString("utf8"), yoursecret, {
         algorithm: 'HS256'
