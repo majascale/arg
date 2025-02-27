@@ -59,27 +59,77 @@ app.post("/mcargs", (req, res) => {
         algorithm: 'HS256'
     }, (err, decoded) => {
         // If the token was invalid err is set, otherwise the decoded payload can be found in decoded
-        console.log('Decoded: ' + decoded);
+        //console.log('Err: ' + err);
         console.log('Decoded Stringify: ' + JSON.stringify(decoded.inArguments[0],null,2));
         var paramsIn = JSON.stringify(decoded.inArguments[0],null,2);
         console.log('ParamsIn is: ' + paramsIn);
+      
         console.log('Type is: ' + JSON.stringify(decoded.inArguments[0].type,null,2));
+        console.log('Type is: ' + JSON.stringify(decoded.inArguments[0].msisdn,null,2));
+      
+        if (JSON.stringify(decoded.inArguments[0].type,null,2) == null) {
+        }else{
+        type = JSON.stringify(decoded.inArguments[0].type,null,2);
+        }
+        if (JSON.stringify(decoded.inArguments[0].msisdn,null,2) == null) {
+        }else{
+        msisdn = JSON.stringify(decoded.inArguments[0].msisdn,null,2);
+        }
+        if (JSON.stringify(decoded.inArguments[0].text,null,2) == null) {
+        }else{
+        msisdn = JSON.stringify(decoded.inArguments[0].text,null,2);
+        }
+        if (JSON.stringify(decoded.inArguments[0].platform,null,2) == null) {
+        }else{
+        platform = JSON.stringify(decoded.inArguments[0].platform,null,2);
+        }
+        if (JSON.stringify(decoded.inArguments[0].buttonName,null,2) == null) {
+        }else{
+        buttonName = JSON.stringify(decoded.inArguments[0].buttonName,null,2);
+        }
+        if (JSON.stringify(decoded.inArguments[0].buttonUrl,null,2) == null) {
+        }else{
+        buttonUrl = JSON.stringify(decoded.inArguments[0].buttonUrl,null,2)
+        }
+        if (JSON.stringify(decoded.inArguments[0].imageUrl,null,2) == null) {
+        }else{
+        imageUrl = JSON.stringify(decoded.inArguments[0].imageUrl,null,2);
+        }
+        if (JSON.stringify(decoded.inArguments[0].fallbackText,null,2) == null) {
+        }else{
+        fallbackText = JSON.stringify(decoded.inArguments[0].fallbackText,null,2);
+        }
+        if (JSON.stringify(decoded.inArguments[0].fileUrl,null,2) == null) {
+        }else{
+        fileUrl = JSON.stringify(decoded.inArguments[0].fileUrl,null,2);
+        }
+        if (JSON.stringify(decoded.inArguments[0].fileName == null) {
+        }else{
+        fileName = JSON.stringify(decoded.inArguments[0].fileName;
+        }
+        if (JSON.stringify(decoded.inArguments[0].videoUrl == null) {
+        }else{
+        videoUrl = JSON.stringify(decoded.inArguments[0].videoUrl;
+        }
+        if (JSON.stringify(decoded.inArguments[0].videoSize == null) {
+        }else{
+        videoSize = JSON.stringify(decoded.inArguments[0].videoSize;
+        }
+        if (JSON.stringify(decoded.inArguments[0].videoDuration == null) {
+        }else{
+        videoDuration = JSON.stringify(decoded.inArguments[0].videoDuration;
+        }
+        if (JSON.stringify(decoded.inArguments[0].thumbnailUrl == null) {
+        }else{
+        thumbnailUrl = JSON.stringify(decoded.inArguments[0].thumbnailUrl;
+        }
         
-        /*for(var i in paramsIn){
-            if (paramsIn[i].type == null) {
-            }else{
-            type = paramsIn[i].type;
-            console.log('Type is: ' + type);
-            }    
-         }*/
-        
-        //console.log('Err: ' + err);
     }); 
    //end test for jwt      
   
 
   
-  var params = req.body.inArguments;
+  /*var params = req.body.inArguments;
 
   for(var i in params){
     if (params[i].type == null) {
@@ -88,7 +138,6 @@ app.post("/mcargs", (req, res) => {
     }
    if (params[i].msisdn == null) {
     }else{
-      //format msisdn remove unnecessary characters?
       msisdn = params[i].msisdn;
     }
     if (params[i].text == null) {
@@ -139,7 +188,7 @@ app.post("/mcargs", (req, res) => {
     }else{
       thumbnailUrl = params[i].thumbnailUrl;
     }
-  }
+  }*/
   console.log('Type: ' + type);
   console.log('Msisdn: ' + msisdn);
   console.log('Text: ' + text);
