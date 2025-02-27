@@ -70,7 +70,8 @@ app.post("/mcargs", (req, res) => {
         if (JSON.stringify(decoded.inArguments[0].type,null,2) == null) {
         }else{
         type = JSON.stringify(decoded.inArguments[0].type,null,2);
-        console.log('Type Before: ' + type);    
+        console.log('Type Before: ' + type); 
+        return type;    
         }
         if (JSON.stringify(decoded.inArguments[0].msisdn,null,2) == null) {
         }else{
