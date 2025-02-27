@@ -137,7 +137,7 @@ app.post("/mcargs", (req, res) => {
         console.log('Thumbnail Url: ' + thumbnailUrl);
 
         switch(type){
-           case 'sms':
+           case  "sms":
               data = {
                        "sc": sc_sms,
                        "service_id": service_id
