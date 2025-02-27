@@ -142,7 +142,7 @@ app.post("/mcargs", (req, res) => {
 
     });
 
-    console.log('Decoded Args: ' + JSON.stringify(decoded.inArguments[0]));
+   
    //end test for jwt      
   
 
