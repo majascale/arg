@@ -63,7 +63,7 @@ app.post("/mcargs", (req, res) => {
         console.log('Decoded Stringify: ' + JSON.stringify(decoded.inArguments[0],null,2));
         var paramsIn = JSON.stringify(decoded.inArguments[0],null,2);
         console.log('ParamsIn is: ' + paramsIn);
-        console.log('Type is: ' + JSON.stringify(decoded.inArguments[0].type,null,2);
+        console.log('Type is: ' + JSON.stringify(decoded.inArguments[0].type,null,2));
         
         /*for(var i in paramsIn){
             if (paramsIn[i].type == null) {
