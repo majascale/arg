@@ -86,7 +86,7 @@ app.post("/mcargs", (req, res) => {
         }
         if (JSON.stringify(decoded.inArguments[0].buttonUrl,null,2) == null) {
         }else{
-        buttonUrl = JSON.stringify(decoded.inArguments[0].buttonUrl,null,2)
+        buttonUrl = JSON.stringify(decoded.inArguments[0].buttonUrl,null,2);
         }
         if (JSON.stringify(decoded.inArguments[0].imageUrl,null,2) == null) {
         }else{
