@@ -138,8 +138,9 @@ app.post("/mcargs", (req, res) => {
 
         console.log(typeof type);
         console.log('Type 2: ' + type);
+        const stringWithoutQuotes = type.replace(/"/g, '');
         var comp = 'sms';
-        console.log('Comp: ' + comp);
+        console.log('stringWithoutQuotes: ' + stringWithoutQuotes);
         console.log(type == comp);  
         console.log(type === comp); 
         console.log(type.toString("utf8") == comp);
