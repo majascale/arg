@@ -136,7 +136,7 @@ app.post("/mcargs", (req, res) => {
         console.log('Video Duration: ' + videoDuration);
         console.log('Thumbnail Url: ' + thumbnailUrl); 
 
-         switch (JSON.stringify(decoded.inArguments[0].type,null,2){
+         switch (JSON.stringify(decoded.inArguments[0].type,null,2)){
            console.log('I am in switch:');        
            case 'sms':
               data = {
