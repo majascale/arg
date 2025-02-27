@@ -134,32 +134,11 @@ app.post("/mcargs", (req, res) => {
         console.log('Video Url: ' + videoUrl);
         console.log('Video Size: ' + videoSize);
         console.log('Video Duration: ' + videoDuration);
-        console.log('Thumbnail Url: ' + thumbnailUrl);
+        console.log('Thumbnail Url: ' + thumbnailUrl);   
+    });
 
 
-       try{
-        switch(type){
-           case 'sms':
-              /*data = {
-                       "sc": sc_sms,
-                       "service_id": service_id
-              };
-              if(msisdn != null){
-                 data.msisdn = msisdn;
-              }
-              if(text != null){
-                 data.text = text;
-              }*/
-              console.log('Data SMS: ' + data);   
-              break;
-         }
-       }catch(err) {
-           console.log('Error Message: ' + err.message);
-           
-       }
-        
-    }); 
-    
+    console.log('Out Type: ' + type);
    //end test for jwt      
   
 
