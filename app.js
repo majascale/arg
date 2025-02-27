@@ -51,8 +51,7 @@ app.post("/mcargs", (req, res) => {
   videoUrl = null;
   videoSize = null;
   videoDuration = null;
-  thumbnailUrl = null;  
-  data = null;  
+  thumbnailUrl = null;   
   
   //start test for jwt
   console.log("Request Body: " + req.body.toString("utf8"));  
@@ -137,7 +136,7 @@ app.post("/mcargs", (req, res) => {
         console.log('Video Duration: ' + videoDuration);
         console.log('Thumbnail Url: ' + thumbnailUrl);
 
-        switch (type){
+        switch(type){
            case 'sms':
               data = {
                        "sc": sc_sms,
@@ -150,128 +149,10 @@ app.post("/mcargs", (req, res) => {
                  data.text = text;
               }
               console.log('Data SMS: ' + data);   
-           break;
-           case 'viber+text':
-              data = { 
-                       "sc": sc_viber,
-                       "service_id":  service_id
-              };
-              if(msisdn != null){
-                 data.msisdn = msisdn;
-              }
-              if(text != null){
-                 data.text = text;
-              }
-              if(platform != null){
-                 data.platform = platform;
-              }
-              if(fallbackText != null){
-                 data.fallback = {"sms" : fallbackText};
-              }
-              if(buttonName != null){
-                 data.ButtonName = buttonName;
-              } 
-              if(buttonUrl != null){
-                 data.ButtonUrl = buttonUrl;
-              } 
-             if(imageUrl != null){
-                data.ImageUrl = imageUrl;
-             } 
-           break;  
-           case 'viber+file':
-              data = {
-                       "sc": sc_viber,
-                       "service_id": service_id
-              };
-              if(msisdn != null){
-                 data.msisdn = msisdn;
-              }
-              if(platform != null){
-                 data.platform = platform;
-              }
-              if(fallbackText != null){
-                 data.fallback = {"sms" : fallbackText};
-              }
-              if(fileUrl != null){
-                 data.FileUrl = fileUrl;
-              }
-              if(fileName != null){
-                 data.FileName = fileName;
-              }
-           break;  
-           case 'viber+video':
-              data = {
-                        "sc": sc_viber,
-                        "service_id":  service_id
-              };
-              if(msisdn != null){
-                 data.msisdn = msisdn;
-              }
-              if(platform != null){
-                 data.platform = platform;
-              }
-              if(fallbackText != null){
-                 data.fallback = {"sms" : fallbackText};
-              }
-              if(buttonName != null){
-                 data.ButtonName = buttonName;
-              }  
-              if(buttonUrl != null){
-                 data.ButtonUrl = buttonUrl;
-              } 
-              if(videoUrl != null){
-                 data.VideoUrl = videoUrl;
-              } 
-              if(videoSize != null){
-                 data.VideoSize = videoSize;
-              } 
-              if(videoDuration != null){
-                 data.Duration = videoDuration;
-              } 
-              if(thumbnailUrl != null){
-                 data.ThumbnailUrl = thumbnailUrl;
-              } 
-           break;    
-           case 'viber+text+video':
-              data = {
-                       "sc": sc_viber,
-                       "service_id":  service_id
-              };
-              if(msisdn != null){
-                 data.msisdn = msisdn;
-              }
-              if(text != null){
-                 data.text = text;
-              }
-              if(platform != null){
-                 data.platform = platform;
-              }
-              if(fallbackText != null){
-                 data.fallback = {"sms" : fallbackText};
-              }
-              if(buttonName != null){
-                 data.ButtonName = buttonName;
-              } 
-              if(buttonUrl != null){
-                 data.ButtonUrl = buttonUrl;
-              } 
-              if(videoUrl != null){
-                 data.VideoUrl = videoUrl;
-              } 
-              if(videoSize != null){
-                 data.VideoSize = videoSize;
-              } 
-              if(videoDuration != null){
-                 data.Duration = videoDuration;
-              } 
-              if(thumbnailUrl != null){
-                 data.ThumbnailUrl = thumbnailUrl;
-              } 
-           break;      
+              break;
+           default:   
+              console.log('I am in default' );  
         }
-  
-        data = JSON.stringify(data);
-        console.log('Data: ' + data);  
         
     }); 
    //end test for jwt      
