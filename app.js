@@ -56,7 +56,7 @@ app.post("/mcargs", (req, res) => {
   //start test for jwt
   console.log("Request Body: " + req.body.toString("utf8"));
 
-  var decodedType = require('jsonwebtoken').verify(req.body.toString("utf8"), yoursecret, {
+  require('jsonwebtoken').verify(req.body.toString("utf8"), yoursecret, {
         algorithm: 'HS256'
     }, (err, decoded) => {
         // If the token was invalid err is set, otherwise the decoded payload can be found in decoded
@@ -138,11 +138,12 @@ app.post("/mcargs", (req, res) => {
         console.log('Thumbnail Url: ' + thumbnailUrl); 
 
         console.log(typeof type);
+        console.log(type == 'sms;);  
+        console.log(type === 'sms'); 
 
-        return type;
     });
 
-    console.log('Decoded Type: ' + decodedType);
+    console.log('Decoded Args: ' + JSON.stringify(decoded.inArguments[0]);
    //end test for jwt      
   
 
