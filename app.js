@@ -37,20 +37,7 @@ var thumbnailUrl;
 
 app.post("/mcargs", (req, res) => {
   console.log("START");
-  
-  //start test for jwt
-  console.log("Request Body: " + req.body.toString("utf8"));  
-  require('jsonwebtoken').verify(req.body.toString("utf8"), yoursecret, {
-        algorithm: 'HS256'
-    }, (err, decoded) => {
-        // If the token was invalid err is set, otherwise the decoded payload can be found in decoded
-        console.log('Decoded: ' + decoded);
-        console.log('Decoded Stringify: ' + JSON.stringify(decoded.inArguments[0],null,2));
-       
-        //console.log('Err: ' + err);
-    }); 
-   //end test for jwt      
-  
+
   type = null;
   msisdn = null;
   text = null;
@@ -64,7 +51,30 @@ app.post("/mcargs", (req, res) => {
   videoUrl = null;
   videoSize = null;
   videoDuration = null;
-  thumbnailUrl = null;
+  thumbnailUrl = null;  
+  
+  //start test for jwt
+  console.log("Request Body: " + req.body.toString("utf8"));  
+  require('jsonwebtoken').verify(req.body.toString("utf8"), yoursecret, {
+        algorithm: 'HS256'
+    }, (err, decoded) => {
+        // If the token was invalid err is set, otherwise the decoded payload can be found in decoded
+        console.log('Decoded: ' + decoded);
+        console.log('Decoded Stringify: ' + JSON.stringify(decoded.inArguments[0],null,2));
+        var paramsIn = JSON.stringify(decoded.inArguments[0],null,2);
+        console.log('Param Type: ' + paramsIn.type);
+        /*for(var i in params){
+            if (params[i].type == null) {
+            }else{
+            type = params[i].type;
+            console.    
+         }*/
+        
+        //console.log('Err: ' + err);
+    }); 
+   //end test for jwt      
+  
+
   
   var params = req.body.inArguments;
 
