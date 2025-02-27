@@ -136,7 +136,11 @@ app.post("/mcargs", (req, res) => {
         console.log('Video Duration: ' + videoDuration);
         console.log('Thumbnail Url: ' + thumbnailUrl); 
 
-         switch (JSON.stringify(decoded.inArguments[0].type,null,2)){    
+         if(JSON.stringify(decoded.inArguments[0].type,null,2) == 'sms'){
+             console.log('TEST SMS');
+         }   
+
+         /*switch (JSON.stringify(decoded.inArguments[0].type,null,2)){    
            case 'sms':
               data = {
                        "sc": sc_sms,
@@ -150,7 +154,10 @@ app.post("/mcargs", (req, res) => {
               }
               console.log('Data SMS: ' + data);   
            break;
-         }
+         }*/
+
+        //data = JSON.stringify(data);
+        //console.log('Data: ' + data);
     });
 
 
