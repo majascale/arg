@@ -62,13 +62,13 @@ app.post("/mcargs", (req, res) => {
         console.log('Decoded: ' + decoded);
         console.log('Decoded Stringify: ' + JSON.stringify(decoded.inArguments[0],null,2));
         var paramsIn = JSON.stringify(decoded.inArguments[0],null,2);
-        console.log('Param Type: ' + paramsIn.type);
-        /*for(var i in params){
-            if (params[i].type == null) {
+        for(var i in paramsIn){
+            if (paramsIn[i].type == null) {
             }else{
-            type = params[i].type;
-            console.    
-         }*/
+            type = paramsIn[i].type;
+            console.log('Type is: ' + type);
+            }    
+         }
         
         //console.log('Err: ' + err);
     }); 
