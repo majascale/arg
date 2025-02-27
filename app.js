@@ -103,25 +103,25 @@ app.post("/mcargs", (req, res) => {
         }else{
         fileUrl = JSON.stringify(decoded.inArguments[0].fileUrl,null,2);
         }
-        if (JSON.stringify(decoded.inArguments[0].fileName == null) {
+        if (JSON.stringify(decoded.inArguments[0].fileName,null,2) == null) {
         }else{
-        fileName = JSON.stringify(decoded.inArguments[0].fileName;
+        fileName = JSON.stringify(decoded.inArguments[0].fileName,null,2);
         }
-        if (JSON.stringify(decoded.inArguments[0].videoUrl == null) {
+        if (JSON.stringify(decoded.inArguments[0].videoUrl,null,2) == null) {
         }else{
-        videoUrl = JSON.stringify(decoded.inArguments[0].videoUrl;
+        videoUrl = JSON.stringify(decoded.inArguments[0].videoUrl,null,2);
         }
-        if (JSON.stringify(decoded.inArguments[0].videoSize == null) {
+        if (JSON.stringify(decoded.inArguments[0].videoSize,null,2) == null) {
         }else{
-        videoSize = JSON.stringify(decoded.inArguments[0].videoSize;
+        videoSize = JSON.stringify(decoded.inArguments[0].videoSize,null,2);
         }
-        if (JSON.stringify(decoded.inArguments[0].videoDuration == null) {
+        if (JSON.stringify(decoded.inArguments[0].videoDuration,null,2) == null) {
         }else{
-        videoDuration = JSON.stringify(decoded.inArguments[0].videoDuration;
+        videoDuration = JSON.stringify(decoded.inArguments[0].videoDuration,null,2);
         }
-        if (JSON.stringify(decoded.inArguments[0].thumbnailUrl == null) {
+        if (JSON.stringify(decoded.inArguments[0].thumbnailUrl,null,2) == null) {
         }else{
-        thumbnailUrl = JSON.stringify(decoded.inArguments[0].thumbnailUrl;
+        thumbnailUrl = JSON.stringify(decoded.inArguments[0].thumbnailUrl,null,2);
         }
         
     }); 
