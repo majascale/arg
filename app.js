@@ -54,8 +54,10 @@ app.post("/mcargs", (req, res) => {
   thumbnailUrl = null;   
   
   //start test for jwt
-  console.log("Request Body: " + req.body.toString("utf8"));  
-  require('jsonwebtoken').verify(req.body.toString("utf8"), yoursecret, {
+  console.log("Request Body: " + req.body.toString("utf8"));
+  var decoded = require('jsonwebtoken').verify(req.body.toString("utf8"), yoursecret, {algorithm: 'HS256'};
+  console.log('DECODED: ' + JSON.stringify(decoded.inArguments[0],null,2)); 
+  /* require('jsonwebtoken').verify(req.body.toString("utf8"), yoursecret, {
         algorithm: 'HS256'
     }, (err, decoded) => {
         // If the token was invalid err is set, otherwise the decoded payload can be found in decoded
@@ -137,33 +139,8 @@ app.post("/mcargs", (req, res) => {
         console.log('Thumbnail Url: ' + thumbnailUrl); 
 
         console.log(typeof type);
-         if(String(type) == 'sms'){
-             console.log('TEST SMS');
-         }   
-
-         /*switch (JSON.stringify(decoded.inArguments[0].type,null,2)){    
-           case 'sms':
-              data = {
-                       "sc": sc_sms,
-                       "service_id": service_id
-              };
-              if(msisdn != null){
-                 data.msisdn = msisdn;
-              }
-              if(text != null){
-                 data.text = text;
-              }
-              console.log('Data SMS: ' + data);   
-           break;
-         }*/
-
-        //data = JSON.stringify(data);
-        //console.log('Data: ' + data);
-    });
-
-
-   
-   //end test for jwt      
+    });*/
+   end test for jwt      
   
 
   
