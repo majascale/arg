@@ -152,6 +152,7 @@ app.post("/mcargs", (req, res) => {
               break;
            default:   
               console.log('I am in default' );  
+              console.log('Type in default: ' + type);  
         }
         
     }); 
