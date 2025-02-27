@@ -137,8 +137,11 @@ app.post("/mcargs", (req, res) => {
         console.log('Thumbnail Url: ' + thumbnailUrl); 
 
         console.log(typeof type);
-        console.log(type == "sms");  
-        console.log(type === "sms"); 
+        var comp = 'sms';
+        console.log(type == comp);  
+        console.log(type === comp); 
+        console.log(type.toString("utf8") == comp);
+        console.log(type.toString("utf8") == comp.toString("utf8"));
 
     });
 
