@@ -70,8 +70,6 @@ app.post("/mcargs", (req, res) => {
         if (JSON.stringify(decoded.inArguments[0].type,null,2) == null) {
         }else{
         type = JSON.stringify(decoded.inArguments[0].type,null,2);
-        console.log('Type Before: ' + type); 
-        return type;    
         }
         if (JSON.stringify(decoded.inArguments[0].msisdn,null,2) == null) {
         }else{
@@ -126,6 +124,156 @@ app.post("/mcargs", (req, res) => {
         }else{
         thumbnailUrl = JSON.stringify(decoded.inArguments[0].thumbnailUrl,null,2);
         }
+
+        console.log('Type: ' + type);
+        console.log('Msisdn: ' + msisdn);
+        console.log('Text: ' + text);
+        console.log('Platform: ' + platform);
+        console.log('Button Name: ' + buttonName);
+        console.log('Button Url: ' + buttonUrl);
+        console.log('Image Url: ' + imageUrl);
+        console.log('Fallback Text: ' + fallbackText);
+        console.log('File Url: ' + fileUrl);
+        console.log('File Name: ' + fileName);
+        console.log('Video Url: ' + videoUrl);
+        console.log('Video Size: ' + videoSize);
+        console.log('Video Duration: ' + videoDuration);
+        console.log('Thumbnail Url: ' + thumbnailUrl);
+
+        switch (type){
+           case 'sms':
+              data = {
+                       "sc": sc_sms,
+                       "service_id": service_id
+              };
+              if(msisdn != null){
+                 data.msisdn = msisdn;
+              }
+              if(text != null){
+                 data.text = text;
+              }
+           break;
+           case 'viber+text':
+              data = { 
+                       "sc": sc_viber,
+                       "service_id":  service_id
+              };
+              if(msisdn != null){
+                 data.msisdn = msisdn;
+              }
+              if(text != null){
+                 data.text = text;
+              }
+              if(platform != null){
+                 data.platform = platform;
+              }
+              if(fallbackText != null){
+                 data.fallback = {"sms" : fallbackText};
+              }
+              if(buttonName != null){
+                 data.ButtonName = buttonName;
+              } 
+              if(buttonUrl != null){
+                 data.ButtonUrl = buttonUrl;
+              } 
+             if(imageUrl != null){
+                data.ImageUrl = imageUrl;
+             } 
+           break;  
+           case 'viber+file':
+              data = {
+                       "sc": sc_viber,
+                       "service_id": service_id
+              };
+              if(msisdn != null){
+                 data.msisdn = msisdn;
+              }
+              if(platform != null){
+                 data.platform = platform;
+              }
+              if(fallbackText != null){
+                 data.fallback = {"sms" : fallbackText};
+              }
+              if(fileUrl != null){
+                 data.FileUrl = fileUrl;
+              }
+              if(fileName != null){
+                 data.FileName = fileName;
+              }
+           break;  
+           case 'viber+video':
+              data = {
+                        "sc": sc_viber,
+                        "service_id":  service_id
+              };
+              if(msisdn != null){
+                 data.msisdn = msisdn;
+              }
+              if(platform != null){
+                 data.platform = platform;
+              }
+              if(fallbackText != null){
+                 data.fallback = {"sms" : fallbackText};
+              }
+              if(buttonName != null){
+                 data.ButtonName = buttonName;
+              }  
+              if(buttonUrl != null){
+                 data.ButtonUrl = buttonUrl;
+              } 
+              if(videoUrl != null){
+                 data.VideoUrl = videoUrl;
+              } 
+              if(videoSize != null){
+                 data.VideoSize = videoSize;
+              } 
+              if(videoDuration != null){
+                 data.Duration = videoDuration;
+              } 
+              if(thumbnailUrl != null){
+                 data.ThumbnailUrl = thumbnailUrl;
+              } 
+           break;    
+           case 'viber+text+video':
+              data = {
+                       "sc": sc_viber,
+                       "service_id":  service_id
+              };
+              if(msisdn != null){
+                 data.msisdn = msisdn;
+              }
+              if(text != null){
+                 data.text = text;
+              }
+              if(platform != null){
+                 data.platform = platform;
+              }
+              if(fallbackText != null){
+                 data.fallback = {"sms" : fallbackText};
+              }
+              if(buttonName != null){
+                 data.ButtonName = buttonName;
+              } 
+              if(buttonUrl != null){
+                 data.ButtonUrl = buttonUrl;
+              } 
+              if(videoUrl != null){
+                 data.VideoUrl = videoUrl;
+              } 
+              if(videoSize != null){
+                 data.VideoSize = videoSize;
+              } 
+              if(videoDuration != null){
+                 data.Duration = videoDuration;
+              } 
+              if(thumbnailUrl != null){
+                 data.ThumbnailUrl = thumbnailUrl;
+              } 
+           break;      
+        }
+  
+        data = JSON.stringify(data);
+        console.log('Data: ' + data);  
         
     }); 
    //end test for jwt      
@@ -191,8 +339,8 @@ app.post("/mcargs", (req, res) => {
     }else{
       thumbnailUrl = params[i].thumbnailUrl;
     }
-  }*/
-  console.log('Type After: ' + type);
+  }
+  console.log('Type: ' + type);
   console.log('Msisdn: ' + msisdn);
   console.log('Text: ' + text);
   console.log('Platform: ' + platform);
@@ -363,7 +511,7 @@ app.post("/mcargs", (req, res) => {
     })
     .then(function (json) {
         console.log(json)
-    });
+    });*/
 
   
   console.log("END");
