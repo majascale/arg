@@ -70,10 +70,12 @@ app.post("/mcargs", (req, res) => {
         if (JSON.stringify(decoded.inArguments[0].type,null,2) == null) {
         }else{
         type = JSON.stringify(decoded.inArguments[0].type,null,2);
+        console.log('Type Before: ' + type);    
         }
         if (JSON.stringify(decoded.inArguments[0].msisdn,null,2) == null) {
         }else{
         msisdn = JSON.stringify(decoded.inArguments[0].msisdn,null,2);
+        console.log('Msisdn Before: ' + msisdn);    
         }
         if (JSON.stringify(decoded.inArguments[0].text,null,2) == null) {
         }else{
@@ -189,7 +191,7 @@ app.post("/mcargs", (req, res) => {
       thumbnailUrl = params[i].thumbnailUrl;
     }
   }*/
-  console.log('Type: ' + type);
+  console.log('Type After: ' + type);
   console.log('Msisdn: ' + msisdn);
   console.log('Text: ' + text);
   console.log('Platform: ' + platform);
@@ -338,8 +340,8 @@ app.post("/mcargs", (req, res) => {
   
 
   data = JSON.stringify(data);
+  console.log('Data: ' + data);  
   signature = crypto.createHmac("sha512", secretKey).update(data).digest('hex');
-  console.log('Data: ' + data);
   console.log('Signature: ' + signature);
   
   const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
