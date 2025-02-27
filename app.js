@@ -45,6 +45,7 @@ app.post("/mcargs", (req, res) => {
     }, (err, decoded) => {
         // If the token was invalid err is set, otherwise the decoded payload can be found in decoded
         console.log('Decoded: ' + decoded);
+        console.log('Decoded Stringify: ' + JSON.stringify(decoded,null,2));
         console.log('Decoded Header ' + decoded.header);
         console.log('Decoded Payload ' + decoded.payload);
        
