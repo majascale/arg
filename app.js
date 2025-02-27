@@ -37,17 +37,15 @@ var thumbnailUrl;
 
 app.post("/mcargs", (req, res) => {
   console.log("START");
-  //start test for jwt
   
+  //start test for jwt
   console.log("Request Body: " + req.body.toString("utf8"));  
   require('jsonwebtoken').verify(req.body.toString("utf8"), yoursecret, {
         algorithm: 'HS256'
     }, (err, decoded) => {
         // If the token was invalid err is set, otherwise the decoded payload can be found in decoded
         console.log('Decoded: ' + decoded);
-        console.log('Decoded Stringify: ' + JSON.stringify(decoded,null,2));
-        console.log('Decoded Header ' + decoded.header);
-        console.log('Decoded Payload ' + decoded.payload);
+        console.log('Decoded Stringify: ' + JSON.stringify(decoded.inArguments[0],null,2));
        
         //console.log('Err: ' + err);
     }); 
