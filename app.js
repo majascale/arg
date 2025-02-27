@@ -143,8 +143,9 @@ app.post("/mcargs", (req, res) => {
         console.log('stringWithoutQuotes: ' + stringWithoutQuotes);
         console.log(type == comp);  
         console.log(type === comp); 
-        console.log(type.toString("utf8") == comp);
-        console.log(type.toString("utf8") == comp.toString("utf8"));
+        console.log(stringWithoutQuotes == comp);  
+        console.log(stringWithoutQuotes === comp); 
+
 
     });
 
