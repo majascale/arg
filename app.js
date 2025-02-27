@@ -136,12 +136,9 @@ app.post("/mcargs", (req, res) => {
         console.log('Video Duration: ' + videoDuration);
         console.log('Thumbnail Url: ' + thumbnailUrl);
 
-        if(type == 'sms'){
-            console.log('Type is SMS');
-        }
 
-        switch(type){
-           case  'sms':
+        switch(String(type)){
+           case 'sms':
               data = {
                        "sc": sc_sms,
                        "service_id": service_id
@@ -156,7 +153,7 @@ app.post("/mcargs", (req, res) => {
               break;
            default:   
               console.log('I am in default' );  
-              console.log('Type in default: ' + type);  
+              console.log('Type in default: ' + String(type));  
         }
         
     }); 
