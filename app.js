@@ -269,7 +269,7 @@ app.post("/mcargs", (req, res) => {
             break;            
         }
 
-        data = JSON.stringify(data);
+        /* data = JSON.stringify(data);
         console.log('Data: ' + data); 
         signature = crypto.createHmac("sha512", secretKey).update(data).digest('hex');
         console.log('Signature: ' + signature);
@@ -293,7 +293,7 @@ app.post("/mcargs", (req, res) => {
        .then(function (json) {
           console.log(json)
        })
-       .catch((error) => console.log(error));     
+       .catch((error) => console.log(error)); */    
     
   });
    
@@ -506,7 +506,7 @@ app.post("/mcargs", (req, res) => {
             data.ThumbnailUrl = thumbnailUrl;
          } 
     break;      
-  }
+  }*/
   
 
   data = JSON.stringify(data);
@@ -532,7 +532,7 @@ app.post("/mcargs", (req, res) => {
     })
     .then(function (json) {
         console.log(json)
-    });*/
+    });
 
   
   console.log("END");
