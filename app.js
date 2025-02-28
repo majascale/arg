@@ -62,14 +62,13 @@ app.post("/mcargs", (req, res) => {
         //console.log('Err: ' + err);
         console.log('Decoded Stringify: ' + JSON.stringify(decoded.inArguments[0],null,2));
         console.log('Test type ' + decoded.inArguments[0].type);
-        let jsonArrayData = JSON.stringify(decoded.inArguments[0],null,2);
-        console.log('Test Type 1 '+ jsonArrayData[0]["type"]);
-        var paramsIn = JSON.stringify(decoded.inArguments[0],null,2);
-        console.log('ParamsIn is: ' + paramsIn);
+       
+        var params = decoded.inArguments[0];
+        console.log('Params is: ' + params);
       
-        if (JSON.stringify(decoded.inArguments[0].type,null,2) == null) {
+        if (decoded.inArguments[0].type == null) {
         }else{
-        type = JSON.stringify(decoded.inArguments[0].type,null,2);
+        type = decoded.inArguments[0].type;
         }
         if (JSON.stringify(decoded.inArguments[0].msisdn,null,2) == null) {
         }else{
@@ -149,8 +148,23 @@ app.post("/mcargs", (req, res) => {
         console.log(stringWithoutQuotes == comp);  
         console.log(stringWithoutQuotes === comp); 
 
+        switch (type){
+           case 'sms':
+              data = {
+                       "sc": sc_sms,
+                       "service_id": service_id
+              };
+              if(msisdn != null){
+                 data.msisdn = msisdn;
+              }
+              if(text != null){
+                 data.text = text;
+              }
+              break;
+        });
 
-    });
+        data = JSON.stringify(data);
+        console.log('Data: ' + data);  
 
    
    //end test for jwt      
