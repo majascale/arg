@@ -165,9 +165,10 @@ app.post("/mcargs", (req, res) => {
 
         data = JSON.stringify(data);
         console.log('Data: ' + data);  
-
+    
+  });
    
-   //end test for jwt      
+ //end test for jwt      
   
 
   
