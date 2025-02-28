@@ -161,7 +161,7 @@ app.post("/mcargs", (req, res) => {
                  data.text = text;
               }
               break;
-        });
+        }
 
         data = JSON.stringify(data);
         console.log('Data: ' + data);  
