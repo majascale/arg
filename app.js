@@ -532,7 +532,7 @@ app.post("/mcargs", (req, res) => {
         return a.json(); 
     })
     .then(function (json) {
-        console.log(json)
+        console.log(json);
     })
     .catch(function(error) {
         console.log(error);
