@@ -53,7 +53,7 @@ app.post("/mcargs", (req, res) => {
   videoDuration = null;
   thumbnailUrl = null;   
   
-  //start test for jwt
+  //start jwt
   console.log("Request Body: " + req.body.toString("utf8"));
   require('jsonwebtoken').verify(req.body.toString("utf8"), yoursecret, {
         algorithm: 'HS256'
@@ -267,37 +267,11 @@ app.post("/mcargs", (req, res) => {
                data.ThumbnailUrl = thumbnailUrl;
             } 
             break;            
-        }
-
-        /* data = JSON.stringify(data);
-        console.log('Data: ' + data); 
-        signature = crypto.createHmac("sha512", secretKey).update(data).digest('hex');
-        console.log('Signature: ' + signature);
-
-        const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-        fetch(
-                 url,
-        {
-           method: 'POST',
-           body: data,
-           headers: {
-              'Content-type': 'application/json',
-              'x-api-key': apiKey,
-              'x-api-sign': signature
-           }
-        }
-        )
-       .then(function (a) {
-          return a.json(); 
-       })
-       .then(function (json) {
-          console.log(json)
-       })
-       .catch((error) => console.log(error)); */    
+        }  
     
   });
    
- //end test for jwt      
+ //end jwt      
   
 
   
