@@ -64,63 +64,62 @@ app.post("/mcargs", (req, res) => {
         console.log('Test type ' + decoded.inArguments[0].type);
        
         var params = decoded.inArguments[0];
-        console.log('Params is: ' + params);
       
         if (decoded.inArguments[0].type == null) {
         }else{
-        type = decoded.inArguments[0].type;
+              type = decoded.inArguments[0].type;
         }
-        if (JSON.stringify(decoded.inArguments[0].msisdn,null,2) == null) {
+        if (decoded.inArguments[0].msisdn == null) {
         }else{
-        msisdn = JSON.stringify(decoded.inArguments[0].msisdn,null,2);
+              msisdn = decoded.inArguments[0].msisdn;
         }
-        if (JSON.stringify(decoded.inArguments[0].text,null,2) == null) {
+        if (decoded.inArguments[0].text == null) {
         }else{
-        text = JSON.stringify(decoded.inArguments[0].text,null,2);
+              text = decoded.inArguments[0].text;
         }
-        if (JSON.stringify(decoded.inArguments[0].platform,null,2) == null) {
+        if (decoded.inArguments[0].platform == null) {
         }else{
-        platform = JSON.stringify(decoded.inArguments[0].platform,null,2);
+              platform = decoded.inArguments[0].platform;
         }
-        if (JSON.stringify(decoded.inArguments[0].buttonName,null,2) == null) {
+        if (decoded.inArguments[0].buttonName == null) {
         }else{
-        buttonName = JSON.stringify(decoded.inArguments[0].buttonName,null,2);
+              buttonName = decoded.inArguments[0].buttonName;
         }
-        if (JSON.stringify(decoded.inArguments[0].buttonUrl,null,2) == null) {
+        if (decoded.inArguments[0].buttonUrl == null) {
         }else{
-        buttonUrl = JSON.stringify(decoded.inArguments[0].buttonUrl,null,2);
+              buttonUrl = decoded.inArguments[0].buttonUrl;
         }
-        if (JSON.stringify(decoded.inArguments[0].imageUrl,null,2) == null) {
+        if (decoded.inArguments[0].imageUrl == null) {
         }else{
-        imageUrl = JSON.stringify(decoded.inArguments[0].imageUrl,null,2);
+              imageUrl = decoded.inArguments[0].imageUrl;
         }
-        if (JSON.stringify(decoded.inArguments[0].fallbackText,null,2) == null) {
+        if (decoded.inArguments[0].fallbackText == null) {
         }else{
-        fallbackText = JSON.stringify(decoded.inArguments[0].fallbackText,null,2);
+              fallbackText = decoded.inArguments[0].fallbackText;
         }
-        if (JSON.stringify(decoded.inArguments[0].fileUrl,null,2) == null) {
+        if (decoded.inArguments[0].fileUrl == null) {
         }else{
-        fileUrl = JSON.stringify(decoded.inArguments[0].fileUrl,null,2);
+              fileUrl = decoded.inArguments[0].fileUrl;
         }
-        if (JSON.stringify(decoded.inArguments[0].fileName,null,2) == null) {
+        if (decoded.inArguments[0].fileName == null) {
         }else{
-        fileName = JSON.stringify(decoded.inArguments[0].fileName,null,2);
+              fileName = decoded.inArguments[0].fileName;
         }
-        if (JSON.stringify(decoded.inArguments[0].videoUrl,null,2) == null) {
+        if (decoded.inArguments[0].videoUrl == null) {
         }else{
-        videoUrl = JSON.stringify(decoded.inArguments[0].videoUrl,null,2);
+              videoUrl = decoded.inArguments[0].videoUrl;
         }
-        if (JSON.stringify(decoded.inArguments[0].videoSize,null,2) == null) {
+        if (decoded.inArguments[0].videoSize == null) {
         }else{
-        videoSize = JSON.stringify(decoded.inArguments[0].videoSize,null,2);
+              videoSize = decoded.inArguments[0].videoSize;
         }
-        if (JSON.stringify(decoded.inArguments[0].videoDuration,null,2) == null) {
+        if (decoded.inArguments[0].videoDuration == null) {
         }else{
-        videoDuration = JSON.stringify(decoded.inArguments[0].videoDuration,null,2);
+              videoDuration = decoded.inArguments[0].videoDuration;
         }
-        if (JSON.stringify(decoded.inArguments[0].thumbnailUrl,null,2) == null) {
+        if (decoded.inArguments[0].thumbnailUrl == null) {
         }else{
-        thumbnailUrl = JSON.stringify(decoded.inArguments[0].thumbnailUrl,null,2);
+              thumbnailUrl = decoded.inArguments[0].thumbnailUrl;
         }
 
         console.log('Type: ' + type);
@@ -138,16 +137,6 @@ app.post("/mcargs", (req, res) => {
         console.log('Video Duration: ' + videoDuration);
         console.log('Thumbnail Url: ' + thumbnailUrl); 
 
-        console.log(typeof type);
-        console.log('Type 2: ' + type);
-        const stringWithoutQuotes = type.replace(/"/g, '');
-        var comp = 'sms';
-        console.log('stringWithoutQuotes: ' + stringWithoutQuotes);
-        console.log(type == comp);  
-        console.log(type === comp); 
-        console.log(stringWithoutQuotes == comp);  
-        console.log(stringWithoutQuotes === comp); 
-
         switch (type){
            case 'sms':
               data = {
@@ -161,10 +150,129 @@ app.post("/mcargs", (req, res) => {
                  data.text = text;
               }
               break;
+           case 'viber+text':
+              data = {
+                       "sc": sc_viber,
+                       "service_id": service_id
+              };
+              if(msisdn != null){
+                 data.msisdn = msisdn;
+              }
+              if(text != null){
+                 data.text = text;
+              }
+              if(platform != null){
+                 data.platform = platform;
+              }
+              if(fallbackText != null){
+                  data.fallback = {"sms" : fallbackText};
+              }
+              if(buttonName != null){
+                 data.ButtonName = buttonName;
+              } 
+              if(buttonUrl != null){
+                 data.ButtonUrl = buttonUrl;
+              } 
+             if(imageUrl != null){
+                data.ImageUrl = imageUrl;
+             } 
+             break;
+          case 'viber+file':
+             data = {
+                      "sc": sc_viber,
+                      "service_id": service_id
+             };
+             if(msisdn != null){
+                data.msisdn = msisdn;
+             }
+             if(platform != null){
+               data.platform = platform;
+             }
+             if(fallbackText != null){
+                data.fallback = {"sms" : fallbackText};
+             }
+             if(fileUrl != null){
+                data.FileUrl = fileUrl;
+             }
+             if(fileName != null){
+                data.FileName = fileName;
+             }
+             break;
+          case 'viber+video':
+             data = {
+                      "sc": sc_viber,
+                      "service_id": service_id
+             };
+             if(msisdn != null){
+                data.msisdn = msisdn;
+             }
+             if(platform != null){
+                data.platform = platform;
+             }
+             if(fallbackText != null){
+                data.fallback = {"sms" : fallbackText};
+             } 
+            if(buttonName != null){
+               data.ButtonName = buttonName;
+            } 
+            if(buttonUrl != null){
+               data.ButtonUrl = buttonUrl;
+            } 
+            if(videoUrl != null){
+               data.VideoUrl = videoUrl;
+            } 
+            if(videoSize != null){
+               data.VideoSize = videoSize;
+            } 
+            if(videoDuration != null){
+               data.Duration = videoDuration;
+            } 
+            if(thumbnailUrl != null){
+               data.ThumbnailUrl = thumbnailUrl;
+            } 
+            break;
+          case 'viber+text+video':
+             data = {
+                      "sc": sc_viber,
+                      "service_id": service_id
+             };
+             if(msisdn != null){
+                data.msisdn = msisdn;
+             }
+             if(text != null){
+                data.text = text;
+             }
+             if(platform != null){
+                data.platform = platform;
+             }
+             if(fallbackText != null){
+                data.fallback = {"sms" : fallbackText};
+             }
+            if(buttonName != null){
+               data.ButtonName = buttonName;
+            } 
+            if(buttonUrl != null){
+               data.ButtonUrl = buttonUrl;
+            } 
+            if(videoUrl != null){
+               data.VideoUrl = videoUrl;
+            } 
+            if(videoSize != null){
+               data.VideoSize = videoSize;
+            } 
+            if(videoDuration != null){
+               data.Duration = videoDuration;
+            } 
+            if(thumbnailUrl != null){
+               data.ThumbnailUrl = thumbnailUrl;
+            } 
+            break;            
         }
 
         data = JSON.stringify(data);
-        console.log('Data: ' + data);  
+        console.log('Data: ' + data); 
+        signature = crypto.createHmac("sha512", secretKey).update(data).digest('hex');
+        console.log('Signature: ' + signature);
     
   });
    
