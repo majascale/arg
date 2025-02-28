@@ -61,6 +61,9 @@ app.post("/mcargs", (req, res) => {
         // If the token was invalid err is set, otherwise the decoded payload can be found in decoded
         //console.log('Err: ' + err);
         console.log('Decoded Stringify: ' + JSON.stringify(decoded.inArguments[0],null,2));
+        console.log('Test type ' + decoded.inArguments[0].type);
+        let jsonArrayData = JSON.stringify(decoded.inArguments[0],null,2);
+        console.log('Test Type 1 '+ jsonArrayData[0]["type"]);
         var paramsIn = JSON.stringify(decoded.inArguments[0],null,2);
         console.log('ParamsIn is: ' + paramsIn);
       
