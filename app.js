@@ -534,9 +534,9 @@ app.post("/mcargs", (req, res) => {
     .then(function (json) {
         console.log(json)
     })
-    .catch(error => {
-        console.error('ERROR: ', error);
-    });     
+    .catch(function(error) {
+        console.log(error);
+    });   
   
 
   
