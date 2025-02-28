@@ -513,26 +513,30 @@ app.post("/mcargs", (req, res) => {
   console.log('Data: ' + data);  
   signature = crypto.createHmac("sha512", secretKey).update(data).digest('hex');
   console.log('Signature: ' + signature);
-  
-  const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-  fetch(
-        url,
-    {
-        method: 'POST',
-        body: data,
-        headers: {
-            'Content-type': 'application/json',
-            'x-api-key': apiKey,
-            'x-api-sign': signature
-        }
-    }
-  )
+
+  try{  
+     const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+     fetch(
+           url,
+           {
+           method: 'POST',
+           body: data,
+           headers: {
+              'Content-type': 'application/json',
+              'x-api-key': apiKey,
+              'x-api-sign': signature
+           }
+          }
+     )
     .then(function (a) {
         return a.json(); 
     })
     .then(function (json) {
         console.log(json)
     });
+  }catch(error){
+      console.log(error); 
+  }
 
   
   console.log("END");
