@@ -292,7 +292,8 @@ app.post("/mcargs", (req, res) => {
        })
        .then(function (json) {
           console.log(json)
-       });
+       })
+       .catch((error) => console.log(error));     
     
   });
    
