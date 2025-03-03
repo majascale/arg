@@ -51,7 +51,8 @@ app.post("/mcargs", (req, res) => {
   videoUrl = null;
   videoSize = null;
   videoDuration = null;
-  thumbnailUrl = null;   
+  thumbnailUrl = null; 
+  data = null;  
   
   //start jwt
   console.log("Request Body: " + req.body.toString("utf8"));
