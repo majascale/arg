@@ -299,6 +299,8 @@ app.post("/mcargs", (req, res) => {
        });   
 
       console.log("END");
+      res.send('End');
+      
   });
    
       
