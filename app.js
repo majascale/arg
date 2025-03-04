@@ -293,13 +293,14 @@ app.post("/mcargs", (req, res) => {
        })
        .then(function (json) {
         console.log(json);
+        res.send(json);   
        })      
        .catch(function(error) {
         console.log(error);
        });   
 
       console.log("END");
-      res.send('End');
+      //res.send('End');
       
   });
    
