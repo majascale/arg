@@ -11,7 +11,7 @@ app.use(require('body-parser').raw({
 const crypto = require('crypto');
 const apiKey = '$2y$10$cVc5FU0gmzvnMcHS5wi.9erdJ1qPsKjTv1RjYfNopLeC10Nfyl7cm';
 const secretKey = "$2y$10$DHkc4KUis70s57hQvBPrfOBlbj.tonKXniTjUBpArymaVqOXxgcn.";
-const sc_sms = '1990';
+//const sc_sms = '1990';
 const sc_viber = 'ViberTest';
 const service_id = '2724';
 const url = 'https://api-test.msghub.cloud/send';
@@ -32,7 +32,8 @@ var imageUrl;
 var videoUrl;
 var videoSize;
 var videoDuration;
-var thumbnailUrl;    
+var thumbnailUrl;
+var sc_sms;
 
 
 app.post("/mcargs", (req, res) => {
@@ -52,7 +53,8 @@ app.post("/mcargs", (req, res) => {
   videoSize = null;
   videoDuration = null;
   thumbnailUrl = null; 
-  data = null;  
+  data = null;
+  sc_sms = null;  
   
   //start jwt
   console.log("Request Body: " + req.body.toString("utf8"));
@@ -69,6 +71,10 @@ app.post("/mcargs", (req, res) => {
         if (decoded.inArguments[0].type == null) {
         }else{
               type = decoded.inArguments[0].type;
+        }
+        if (decoded.inArguments[0].sc_sms == null) {
+        }else{
+              sc_sms = decoded.inArguments[0].sc_sms;
         }
         if (decoded.inArguments[0].msisdn == null) {
         }else{
@@ -124,6 +130,7 @@ app.post("/mcargs", (req, res) => {
         }
 
         console.log('Type: ' + type);
+        console.log('SMS sc ' + sc_sms);
         console.log('Msisdn: ' + msisdn);
         console.log('Text: ' + text);
         console.log('Platform: ' + platform);
