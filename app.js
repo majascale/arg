@@ -130,7 +130,7 @@ app.post("/mcargs", (req, res) => {
         }
 
         console.log('Type: ' + type);
-        console.log('SMS sc ' + sc_sms);
+        console.log('sc_sms: ' + sc_sms);
         console.log('Msisdn: ' + msisdn);
         console.log('Text: ' + text);
         console.log('Platform: ' + platform);
