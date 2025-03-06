@@ -300,14 +300,15 @@ app.post("/mcargs", (req, res) => {
        })
        .then(function (json) {
         console.log(json);
-        console.log(json['meta'].code);
+        res.status(json['meta'].code).send('SENT');   
        })      
        .catch(function(error) {
         console.log(error);
+        res.send('ERROR');   
        });   
 
       console.log("END");
-      res.send('End');
+      //res.send('End');
       
   });
    
