@@ -300,7 +300,7 @@ app.post("/mcargs", (req, res) => {
        })
        .then(function (json) {
         console.log(json);
-        console.log(json[0].code);   
+        console.log(json['meta'].code);
        })      
        .catch(function(error) {
         console.log(error);
