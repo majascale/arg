@@ -13,10 +13,10 @@ const crypto = require('crypto');
 //const apiKey = '$2y$10$cVc5FU0gmzvnMcHS5wi.9erdJ1qPsKjTv1RjYfNopLeC10Nfyl7cm';
 //const secretKey = "$2y$10$DHkc4KUis70s57hQvBPrfOBlbj.tonKXniTjUBpArymaVqOXxgcn.";
 //const sc_sms = '1990';
-const sc_viber = 'ViberTest';
-const service_id = '2724';
-const url = 'https://api-test.msghub.cloud/send';
-const yoursecret = 'lyLs_fmNXO7tVLgFnd5xvjZqloLnyBfpbdSfF-QohKjpVXjC_LoZJGsZiFPnHxT_PRTEjYJZ8k0TmdAsqK_mGtbPiVGFOtIHvHIexN1noxYazGLr2iY4_1X7tRp4F2dncqUvMLub_-l_aKdkBIBiUIQTutNaGbrI1ZOELnC_7r22rKWMlQ-UdPQ3kBTdz3iZv8mHSLdF3tKOrNhf6d1zAnkvo_l9N9BFjKqmIKNko01Qh_GfOHJ10Ysm0hMbuQ2';
+//const sc_viber = 'ViberTest';
+//const service_id = '2724';
+//const url = 'https://api-test.msghub.cloud/send';
+//const yoursecret = 'lyLs_fmNXO7tVLgFnd5xvjZqloLnyBfpbdSfF-QohKjpVXjC_LoZJGsZiFPnHxT_PRTEjYJZ8k0TmdAsqK_mGtbPiVGFOtIHvHIexN1noxYazGLr2iY4_1X7tRp4F2dncqUvMLub_-l_aKdkBIBiUIQTutNaGbrI1ZOELnC_7r22rKWMlQ-UdPQ3kBTdz3iZv8mHSLdF3tKOrNhf6d1zAnkvo_l9N9BFjKqmIKNko01Qh_GfOHJ10Ysm0hMbuQ2';
 
 var type;
 var msisdn;
@@ -59,7 +59,7 @@ app.post("/mcargs", (req, res) => {
   
   //start jwt
   console.log("Request Body: " + req.body.toString("utf8"));
-  require('jsonwebtoken').verify(req.body.toString("utf8"), yoursecret, {
+  require('jsonwebtoken').verify(req.body.toString("utf8"), constants.yoursecret, {
         algorithm: 'HS256'
     }, (err, decoded) => {
         // If the token was invalid err is set, otherwise the decoded payload can be found in decoded
@@ -150,7 +150,7 @@ app.post("/mcargs", (req, res) => {
            case 'sms':
               data = {
                        "sc": sc_sms,
-                       "service_id": service_id
+                       "service_id": constants.service_id
               };
               if(msisdn != null){
                  data.msisdn = msisdn;
@@ -161,8 +161,8 @@ app.post("/mcargs", (req, res) => {
               break;
            case 'viber+text':
               data = {
-                       "sc": sc_viber,
-                       "service_id": service_id
+                       "sc": constants.sc_viber,
+                       "service_id": constants.service_id
               };
               if(msisdn != null){
                  data.msisdn = msisdn;
@@ -188,8 +188,8 @@ app.post("/mcargs", (req, res) => {
              break;
           case 'viber+file':
              data = {
-                      "sc": sc_viber,
-                      "service_id": service_id
+                      "sc": constants.sc_viber,
+                      "service_id": constants.service_id
              };
              if(msisdn != null){
                 data.msisdn = msisdn;
@@ -209,8 +209,8 @@ app.post("/mcargs", (req, res) => {
              break;
           case 'viber+video':
              data = {
-                      "sc": sc_viber,
-                      "service_id": service_id
+                      "sc": constants.sc_viber,
+                      "service_id": constants.service_id
              };
              if(msisdn != null){
                 data.msisdn = msisdn;
@@ -242,8 +242,8 @@ app.post("/mcargs", (req, res) => {
             break;
           case 'viber+text+video':
              data = {
-                      "sc": sc_viber,
-                      "service_id": service_id
+                      "sc": constants.sc_viber,
+                      "service_id": constants.service_id
              };
              if(msisdn != null){
                 data.msisdn = msisdn;
@@ -285,7 +285,7 @@ app.post("/mcargs", (req, res) => {
 
         const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
         fetch(
-           url,
+           constants.url,
            {
            method: 'POST',
            body: data,
