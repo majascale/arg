@@ -1,3 +1,4 @@
+import * as Constants from "constants"
 
 var express = require("express");
 var app = express();
@@ -9,8 +10,8 @@ app.use(require('body-parser').raw({
 }));
 
 const crypto = require('crypto');
-const apiKey = '$2y$10$cVc5FU0gmzvnMcHS5wi.9erdJ1qPsKjTv1RjYfNopLeC10Nfyl7cm';
-const secretKey = "$2y$10$DHkc4KUis70s57hQvBPrfOBlbj.tonKXniTjUBpArymaVqOXxgcn.";
+//const apiKey = '$2y$10$cVc5FU0gmzvnMcHS5wi.9erdJ1qPsKjTv1RjYfNopLeC10Nfyl7cm';
+//const secretKey = "$2y$10$DHkc4KUis70s57hQvBPrfOBlbj.tonKXniTjUBpArymaVqOXxgcn.";
 //const sc_sms = '1990';
 const sc_viber = 'ViberTest';
 const service_id = '2724';
@@ -279,7 +280,7 @@ app.post("/mcargs", (req, res) => {
 
         data = JSON.stringify(data);
         console.log('Data: ' + data);  
-        signature = crypto.createHmac("sha512", secretKey).update(data).digest('hex');
+        signature = crypto.createHmac("sha512", Constants.secretKey).update(data).digest('hex');
         console.log('Signature: ' + signature);
 
         const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
@@ -290,7 +291,7 @@ app.post("/mcargs", (req, res) => {
            body: data,
            headers: {
               'Content-type': 'application/json',
-              'x-api-key': apiKey,
+              'x-api-key': Constants.apiKey,
               'x-api-sign': signature
            }
           }
