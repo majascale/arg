@@ -8,7 +8,6 @@ app.use(require('body-parser').raw({
 }));
 
 const constants = require('./constants');
-
 const crypto = require('crypto');
 //const apiKey = '$2y$10$cVc5FU0gmzvnMcHS5wi.9erdJ1qPsKjTv1RjYfNopLeC10Nfyl7cm';
 //const secretKey = "$2y$10$DHkc4KUis70s57hQvBPrfOBlbj.tonKXniTjUBpArymaVqOXxgcn.";
