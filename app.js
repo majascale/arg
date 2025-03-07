@@ -61,91 +61,93 @@ app.post("/mcargs", (req, res) => {
   require('jsonwebtoken').verify(req.body.toString("utf8"), constants.jwtSecret, {
         algorithm: 'HS256'
     }, (err, decoded) => {
-        // If the token was invalid err is set, otherwise the decoded payload can be found in decoded
-        //console.log('Err: ' + err);
-        console.log('Decoded Stringify: ' + JSON.stringify(decoded.inArguments[0],null,2));
-       
-        var params = decoded.inArguments[0];
       
-        if (decoded.inArguments[0].type == null) {
+        if (err) {
+           console.log(err);
         }else{
+           console.log('Decoded Stringify: ' + JSON.stringify(decoded.inArguments[0],null,2));
+       
+           var params = decoded.inArguments[0];
+      
+           if (decoded.inArguments[0].type == null) {
+           }else{
               type = decoded.inArguments[0].type;
-        }
-        if (decoded.inArguments[0].sc_sms == null) {
-        }else{
+           }
+           if (decoded.inArguments[0].sc_sms == null) {
+           }else{
               sc_sms = decoded.inArguments[0].sc_sms;
-        }
-        if (decoded.inArguments[0].msisdn == null) {
-        }else{
+           }
+           if (decoded.inArguments[0].msisdn == null) {
+           }else{
               msisdn = decoded.inArguments[0].msisdn;
-        }
-        if (decoded.inArguments[0].text == null) {
-        }else{
+           }
+           if (decoded.inArguments[0].text == null) {
+           }else{
               text = decoded.inArguments[0].text;
-        }
-        if (decoded.inArguments[0].platform == null) {
-        }else{
+           }
+           if (decoded.inArguments[0].platform == null) {
+           }else{
               platform = decoded.inArguments[0].platform;
-        }
-        if (decoded.inArguments[0].buttonName == null) {
-        }else{
+           }
+           if (decoded.inArguments[0].buttonName == null) {
+           }else{
               buttonName = decoded.inArguments[0].buttonName;
-        }
-        if (decoded.inArguments[0].buttonUrl == null) {
-        }else{
+           }
+           if (decoded.inArguments[0].buttonUrl == null) {
+           }else{
               buttonUrl = decoded.inArguments[0].buttonUrl;
-        }
-        if (decoded.inArguments[0].imageUrl == null) {
-        }else{
+           }
+           if (decoded.inArguments[0].imageUrl == null) {
+           }else{
               imageUrl = decoded.inArguments[0].imageUrl;
-        }
-        if (decoded.inArguments[0].fallbackText == null) {
-        }else{
+           }
+           if (decoded.inArguments[0].fallbackText == null) {
+           }else{
               fallbackText = decoded.inArguments[0].fallbackText;
-        }
-        if (decoded.inArguments[0].fileUrl == null) {
-        }else{
+           }
+           if (decoded.inArguments[0].fileUrl == null) {
+           }else{
               fileUrl = decoded.inArguments[0].fileUrl;
-        }
-        if (decoded.inArguments[0].fileName == null) {
-        }else{
+           }
+           if (decoded.inArguments[0].fileName == null) {
+           }else{
               fileName = decoded.inArguments[0].fileName;
-        }
-        if (decoded.inArguments[0].videoUrl == null) {
-        }else{
+           }
+           if (decoded.inArguments[0].videoUrl == null) {
+           }else{
               videoUrl = decoded.inArguments[0].videoUrl;
-        }
-        if (decoded.inArguments[0].videoSize == null) {
-        }else{
+           }
+           if (decoded.inArguments[0].videoSize == null) {
+           }else{
               videoSize = decoded.inArguments[0].videoSize;
-        }
-        if (decoded.inArguments[0].videoDuration == null) {
-        }else{
+           }
+           if (decoded.inArguments[0].videoDuration == null) {
+           }else{
               videoDuration = decoded.inArguments[0].videoDuration;
-        }
-        if (decoded.inArguments[0].thumbnailUrl == null) {
-        }else{
+           }
+           if (decoded.inArguments[0].thumbnailUrl == null) {
+           }else{
               thumbnailUrl = decoded.inArguments[0].thumbnailUrl;
-        }
+           }
 
-        console.log('Type: ' + type);
-        console.log('sc_sms: ' + sc_sms);
-        console.log('Msisdn: ' + msisdn);
-        console.log('Text: ' + text);
-        console.log('Platform: ' + platform);
-        console.log('Button Name: ' + buttonName);
-        console.log('Button Url: ' + buttonUrl);
-        console.log('Image Url: ' + imageUrl);
-        console.log('Fallback Text: ' + fallbackText);
-        console.log('File Url: ' + fileUrl);
-        console.log('File Name: ' + fileName);
-        console.log('Video Url: ' + videoUrl);
-        console.log('Video Size: ' + videoSize);
-        console.log('Video Duration: ' + videoDuration);
-        console.log('Thumbnail Url: ' + thumbnailUrl); 
+           console.log('Type: ' + type);
+           console.log('sc_sms: ' + sc_sms);
+           console.log('Msisdn: ' + msisdn);
+           console.log('Text: ' + text);
+           console.log('Platform: ' + platform);
+           console.log('Button Name: ' + buttonName);
+           console.log('Button Url: ' + buttonUrl);
+           console.log('Image Url: ' + imageUrl);
+           console.log('Fallback Text: ' + fallbackText);
+           console.log('File Url: ' + fileUrl);
+           console.log('File Name: ' + fileName);
+           console.log('Video Url: ' + videoUrl);
+           console.log('Video Size: ' + videoSize);
+           console.log('Video Duration: ' + videoDuration);
+           console.log('Thumbnail Url: ' + thumbnailUrl); 
 
-        switch (type){
-           case 'sms':
+           switch (type){
+            case 'sms':
               data = {
                        "sc": sc_sms,
                        "service_id": constants.service_id
@@ -157,7 +159,7 @@ app.post("/mcargs", (req, res) => {
                  data.text = text;
               }
               break;
-           case 'viber+text':
+            case 'viber+text':
               data = {
                        "sc": constants.sc_viber,
                        "service_id": constants.service_id
@@ -184,7 +186,7 @@ app.post("/mcargs", (req, res) => {
                 data.ImageUrl = imageUrl;
              } 
              break;
-          case 'viber+file':
+            case 'viber+file':
              data = {
                       "sc": constants.sc_viber,
                       "service_id": constants.service_id
@@ -205,7 +207,7 @@ app.post("/mcargs", (req, res) => {
                 data.FileName = fileName;
              }
              break;
-          case 'viber+video':
+            case 'viber+video':
              data = {
                       "sc": constants.sc_viber,
                       "service_id": constants.service_id
@@ -238,7 +240,7 @@ app.post("/mcargs", (req, res) => {
                data.ThumbnailUrl = thumbnailUrl;
             } 
             break;
-          case 'viber+text+video':
+            case 'viber+text+video':
              data = {
                       "sc": constants.sc_viber,
                       "service_id": constants.service_id
@@ -274,15 +276,15 @@ app.post("/mcargs", (req, res) => {
                data.ThumbnailUrl = thumbnailUrl;
             } 
             break;            
-        }  
+          }  
        
-        data = JSON.stringify(data);
-        console.log('Data: ' + data);  
-        signature = crypto.createHmac("sha512", constants.secretKey).update(data).digest('hex');
-        console.log('Signature: ' + signature);
+          data = JSON.stringify(data);
+          console.log('Data: ' + data);  
+          signature = crypto.createHmac("sha512", constants.secretKey).update(data).digest('hex');
+          console.log('Signature: ' + signature);
 
-        const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-        fetch(
+          const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+          fetch(
            constants.url,
            {
            method: 'POST',
@@ -293,22 +295,22 @@ app.post("/mcargs", (req, res) => {
               'x-api-sign': signature
            }
           }
-       )
-       .then(function (a) {
-        return a.json(); 
-       })
-       .then(function (json) {
-        console.log(json);
-        res.status(json['meta'].code).send('SENT');   
-       })      
-       .catch(function(error) {
-        console.log(error);
-        res.send('LINK MOBILITY ERROR');   
-       });  
+         )
+         .then(function (a) {
+             return a.json(); 
+         })
+         .then(function (json) {
+             console.log(json);
+             res.status(json['meta'].code).send('SENT');   
+         })      
+         .catch(function(error) {
+             console.log(error);
+             res.send('LINK MOBILITY ERROR');   
+         });  
 
       console.log("END");
       //res.send('End');
-      
+   }   
   });   
 
 });
