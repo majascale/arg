@@ -281,9 +281,6 @@ app.post("/mcargs", (req, res) => {
         signature = crypto.createHmac("sha512", constants.secretKey).update(data).digest('hex');
         console.log('Signature: ' + signature);
 
-        //testing
-        throw 'Error again';
-
         const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
         fetch(
            constants.url,
