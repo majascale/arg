@@ -58,7 +58,7 @@ app.post("/mcargs", (req, res) => {
   
   //start jwt
   console.log("Request Body: " + req.body.toString("utf8"));
-  require('jsonwebtoken').verify(req.body.toString("utf8"), constants.yoursecret, {
+  require('jsonwebtoken').verify(req.body.toString("utf8"), constants.jwtSecret, {
         algorithm: 'HS256'
     }, (err, decoded) => {
         // If the token was invalid err is set, otherwise the decoded payload can be found in decoded
