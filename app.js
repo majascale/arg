@@ -56,7 +56,7 @@ app.post("/mcargs", (req, res) => {
   data = null;
   sc_sms = null;  
   
-  //start jwt
+  
   console.log("Request Body: " + req.body.toString("utf8"));
   require('jsonwebtoken').verify(req.body.toString("utf8"), constants.jwtSecret, {
         algorithm: 'HS256'
@@ -302,51 +302,16 @@ app.post("/mcargs", (req, res) => {
         console.log(json);
         res.status(json['meta'].code).send('SENT');   
        })      
-       .catch(function(error) {
+       /*.catch(function(error) {
         console.log(error);
         res.send('ERROR');   
-       });   
+       });*/   
 
       console.log("END");
       //res.send('End');
       
   });
    
-      
-
-  //data = JSON.stringify(data);
-  //console.log('Data: ' + data);  
-  //signature = crypto.createHmac("sha512", secretKey).update(data).digest('hex');
-  //console.log('Signature: ' + signature);
-
-    
-  /*const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-     fetch(
-           url,
-           {
-           method: 'POST',
-           body: data,
-           headers: {
-              'Content-type': 'application/json',
-              'x-api-key': apiKey,
-              'x-api-sign': signature
-           }
-          }
-     )
-    .then(function (a) {
-        return a.json(); 
-    })
-    .then(function (json) {
-        console.log(json);
-    })      
-    .catch(function(error) {
-        console.log(error);
-    });   */
-  
-
-  
-  //console.log("END");
-  //res.send('End');
 
 });
 
