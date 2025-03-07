@@ -301,10 +301,10 @@ app.post("/mcargs", (req, res) => {
         console.log(json);
         res.status(json['meta'].code).send('SENT');   
        })      
-       /*.catch(function(error) {
+       .catch(function(error) {
         console.log(error);
-        res.send('ERROR');   
-       });*/   
+        res.send('LINK MOBILITY ERROR');   
+       });  
 
       console.log("END");
       //res.send('End');
