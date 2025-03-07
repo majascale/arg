@@ -35,7 +35,7 @@ var videoDuration;
 var thumbnailUrl;
 var sc_sms;
 
-
+try {
 app.post("/mcargs", (req, res) => {
   console.log("START");
 
@@ -64,7 +64,6 @@ app.post("/mcargs", (req, res) => {
         // If the token was invalid err is set, otherwise the decoded payload can be found in decoded
         //console.log('Err: ' + err);
         console.log('Decoded Stringify: ' + JSON.stringify(decoded.inArguments[0],null,2));
-        //console.log('Test type ' + decoded.inArguments[0].type);
        
         var params = decoded.inArguments[0];
       
@@ -314,6 +313,12 @@ app.post("/mcargs", (req, res) => {
       //res.send('End');
       
   });
+
+    //here
+}catch(err) {
+  console.log(err);
+  res.status(500).send(err);     
+}   
    
 
 });
