@@ -312,15 +312,15 @@ app.post("/mcargs", (req, res) => {
       console.log("END");
       //res.send('End');
       
-  });
+  });   
+
+});
 
     //here
 }catch(err) {
   console.log(err);
   res.status(500).send(err);     
-}   
-   
-
-});
+}       
+    
 
 app.listen( port, () => console.log( `App listening on port ${port}!`) )
